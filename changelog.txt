@@ -1,0 +1,18 @@
+Terminal 80 1.0.0
+- First independent Terminal 80 package identity, derived from Eminence 2.0.
+- Added phosphor-green-on-black theme palette and monospace UI typography.
+- Added static terminal-inspired fallback background and new skin icon.
+- Promoted Add-ons to a dedicated default main-menu entry.
+- Retained Eminence navigation, widgets, dialogs, settings, and media views as the functional base.
+
+Terminal 80 1.0.1
+- Added selected-item network/studio and video/audio metadata panel for items exposing Kodi list-item properties (including Umbrella results).
+- Replaced bright-green filled focused buttons/list rows with dark-green fills and bright phosphor-green borders.
+- Kept bright green for accents and focus outlines rather than large filled surfaces.
+
+Terminal 80 1.0.2
+- Rebuilt focused-row highlight as a transparent phosphor-green outline with dark green interior; explicit full-size frame on focused list rows.
+- Changed selected text from pale/white to phosphor green.
+- Added network/studio badge artwork and selected-item certification/genre metadata to library info panels.
+- Removed numeric weather temperature from the header.
+- Combined time and AM/PM into one consistently sized, aligned clock label.
