@@ -6,6 +6,7 @@ import hashlib
 import os
 from pathlib import Path
 import re
+import shutil
 import tempfile
 from xml.etree import ElementTree
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
@@ -63,6 +64,30 @@ def build(version, files):
     print(f"Built {output.name} ({len(files)} files)")
 
 
+def publish_artwork():
+    """Publish metadata artwork outside the ZIP for Kodi repository browsing."""
+    metadata = ElementTree.parse(ADDON).find(
+        "./extension[@point='xbmc.addon.metadata']/assets"
+    )
+    if metadata is None:
+        return
+    artwork = []
+    for asset in metadata:
+        if asset.tag not in ("icon", "fanart", "screenshot", "banner", "clearlogo"):
+            continue
+        relative = Path((asset.text or "").strip())
+        if relative.is_absolute() or ".." in relative.parts:
+            raise ValueError(f"Invalid artwork path: {relative}")
+        source = ROOT / relative
+        if not source.is_file():
+            raise ValueError(f"Missing repository artwork: {source}")
+        artwork.append((source, OUT / relative))
+    for source, destination in artwork:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
+        print(f"Published artwork: {destination.relative_to(ROOT)}")
+
+
 def write_repo_index():
     body = ADDON.read_text(encoding="utf-8").replace("\r\n", "\n").strip()
     if body.startswith("<?xml"):
@@ -104,6 +129,7 @@ def main():
         version = next_version
 
     try:
+        publish_artwork()
         build(version, files)
         write_repo_index()
     except Exception:
