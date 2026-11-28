@@ -1,4 +1,4 @@
-<addon id="skin.terminal80" name="Terminal 80" provider-name="Terminal 80 Project" version="1.0.14">
+<addon id="skin.terminal80" name="Terminal 80" provider-name="Terminal 80 Project" version="1.0.15">
     <requires>
         <import addon="xbmc.gui" version="5.17.0" />
         <import addon="script.skinshortcuts" version="1.0.0" />
