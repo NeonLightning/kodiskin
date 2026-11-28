@@ -50,3 +50,6 @@ Terminal 80 1.0.10
 Terminal 80 1.0.11
 - Clarified skin settings categories and grouped home header controls with the other header options.
 - Removed the forecast screen, home widget, menu shortcut, top bar icon, settings controls, and image dependency.
+
+Terminal 80 1.0.12
+- Version bump to test Kodi repository updates.

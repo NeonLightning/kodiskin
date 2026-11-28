@@ -2,6 +2,7 @@
 """Build a versioned, installable Terminal 80 Kodi skin ZIP."""
 
 import argparse
+import hashlib
 import os
 from pathlib import Path
 import re
@@ -11,15 +12,18 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 
 ROOT = Path(__file__).resolve().parent.parent
-ADDON = ROOT / "addon.xml"
+OUT = ROOT / "skin.terminal80"
+ADDON = OUT / "addon.xml"
 CHANGELOG = ROOT / "changelog.txt"
 PACKAGE_DIRS = ("16x9", "colors", "extras", "fonts", "language", "media", "shortcuts")
-PACKAGE_FILES = ("LICENSE.txt", "README.md", "addon.xml", "changelog.txt", "icon.png")
+PACKAGE_FILES = ("LICENSE.txt", "README.md", "changelog.txt", "icon.png")
 def source_files():
     missing = [name for name in PACKAGE_FILES + PACKAGE_DIRS if not (ROOT / name).exists()]
+    if not ADDON.exists():
+        missing.append("skin.terminal80/addon.xml")
     if missing:
         raise ValueError(f"Missing package paths: {', '.join(missing)}")
-    files = [ROOT / name for name in PACKAGE_FILES]
+    files = [ROOT / name for name in PACKAGE_FILES] + [ADDON]
     for name in PACKAGE_DIRS:
         files.extend(path for path in (ROOT / name).rglob("*") if path.is_file())
     files = [path for path in files if not any(part.startswith(".") or part == "__pycache__" for part in path.relative_to(ROOT).parts)]
@@ -33,13 +37,13 @@ def validate_xml(files):
 
 
 def build(version, files):
-    output = ROOT / f"skin.terminal80-{version}.zip"
-    descriptor, temporary = tempfile.mkstemp(prefix=".skin-build-", suffix=".zip", dir=ROOT)
+    output = OUT / f"skin.terminal80-{version}.zip"
+    descriptor, temporary = tempfile.mkstemp(prefix=".skin-build-", suffix=".zip", dir=OUT)
     os.close(descriptor)
     try:
         with ZipFile(temporary, "w") as archive:
             for path in files:
-                relative = path.relative_to(ROOT).as_posix()
+                relative = "addon.xml" if path == ADDON else path.relative_to(ROOT).as_posix()
                 entry = ZipInfo(f"skin.terminal80/{relative}", date_time=(1980, 1, 1, 0, 0, 0))
                 entry.compress_type = ZIP_DEFLATED
                 entry.external_attr = 0o644 << 16
@@ -57,6 +61,17 @@ def build(version, files):
         if os.path.exists(temporary):
             os.unlink(temporary)
     print(f"Built {output.name} ({len(files)} files)")
+
+
+def write_repo_index():
+    body = ADDON.read_text(encoding="utf-8").replace("\r\n", "\n").strip()
+    if body.startswith("<?xml"):
+        body = body.split("?>", 1)[1].strip()
+    data = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<addons>\n' + body + "\n</addons>\n").encode("utf-8")
+    ElementTree.fromstring(data)
+    (ROOT / "addons.xml").write_bytes(data)
+    (ROOT / "addons.xml.md5").write_bytes(hashlib.md5(data).hexdigest().encode("ascii"))
+    print("Wrote addons.xml and addons.xml.md5")
 
 
 def main():
@@ -79,7 +94,7 @@ def main():
     if args.bump_patch:
         major, minor, patch = map(int, version.split("."))
         next_version = f"{major}.{minor}.{patch + 1}"
-        if (ROOT / f"skin.terminal80-{next_version}.zip").exists():
+        if (OUT / f"skin.terminal80-{next_version}.zip").exists():
             parser.error(f"skin.terminal80-{next_version}.zip already exists")
         updated = addon_text.replace(f'version="{version}"', f'version="{next_version}"', 1)
         if updated == addon_text:
@@ -90,6 +105,7 @@ def main():
 
     try:
         build(version, files)
+        write_repo_index()
     except Exception:
         if args.bump_patch:
             ADDON.write_text(addon_text)
