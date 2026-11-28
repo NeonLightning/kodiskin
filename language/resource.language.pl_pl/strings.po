@@ -340,10 +340,6 @@ msgctxt "#31075"
 msgid "Icon"
 msgstr "Ikona"
 
-msgctxt "#31076"
-msgid "Weather Fanart"
-msgstr "Fototapeta pogody"
-
 msgctxt "#31077"
 msgid "Trending Movies"
 msgstr "Filmy na czasie"
@@ -491,14 +487,6 @@ msgstr "Wybierz alternatywny kolor podświetlenia"
 msgctxt "#31113"
 msgid "Reset colors to defaults"
 msgstr "Przywróć domyślne kolory"
-
-msgctxt "#31114"
-msgid "Install weather fanart"
-msgstr "Zainstaluj pakiet fototapet pogody"
-
-msgctxt "#31115"
-msgid "Show weather with clock"
-msgstr "Pokazuj pogodę razem z zegarem"
 
 msgctxt "#31116"
 msgid "Animate fanart"
@@ -731,10 +719,6 @@ msgstr "Przezroczysty pasek ekranu startowego"
 msgctxt "#31173"
 msgid "Home bar style"
 msgstr "Styl paska ekranu startowego"
-
-msgctxt "#31174"
-msgid "Weather icons"
-msgstr "Ikony pogody"
 
 msgctxt "#31175"
 msgid "Customise shutdown menu"

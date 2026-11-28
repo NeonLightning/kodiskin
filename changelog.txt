@@ -13,7 +13,6 @@ Terminal 80 1.0.2
 - Rebuilt focused-row highlight as a transparent phosphor-green outline with dark green interior; explicit full-size frame on focused list rows.
 - Changed selected text from pale/white to phosphor green.
 - Added network/studio badge artwork and selected-item certification/genre metadata to library info panels.
-- Removed numeric weather temperature from the header.
 - Combined time and AM/PM into one consistently sized, aligned clock label.
 
 Terminal 80 1.0.4
@@ -47,3 +46,7 @@ Terminal 80 1.0.9
 
 Terminal 80 1.0.10
 - Added a muted background behind studio and network logos in each color scheme.
+
+Terminal 80 1.0.11
+- Clarified skin settings categories and grouped home header controls with the other header options.
+- Removed the forecast screen, home widget, menu shortcut, top bar icon, settings controls, and image dependency.

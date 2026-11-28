@@ -338,10 +338,6 @@ msgctxt "#31075"
 msgid "Icon"
 msgstr "图标"
 
-msgctxt "#31076"
-msgid "Weather Fanart"
-msgstr "天气同人画"
-
 msgctxt "#31077"
 msgid "Trending Movies"
 msgstr "流行电影"
@@ -489,14 +485,6 @@ msgstr "选择次高亮色"
 msgctxt "#31113"
 msgid "Reset colors to defaults"
 msgstr "将颜色重置为默认值"
-
-msgctxt "#31114"
-msgid "Install weather fanart"
-msgstr "安装天气同人画"
-
-msgctxt "#31115"
-msgid "Show weather with clock"
-msgstr "显示天气和时钟"
 
 msgctxt "#31116"
 msgid "Animate fanart"
@@ -729,10 +717,6 @@ msgstr "透明主菜单条"
 msgctxt "#31173"
 msgid "Home bar style"
 msgstr "主菜单条风格"
-
-msgctxt "#31174"
-msgid "Weather icons"
-msgstr "天气图标"
 
 msgctxt "#31175"
 msgid "Customise shutdown menu"

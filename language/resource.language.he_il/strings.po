@@ -338,10 +338,6 @@ msgctxt "#31075"
 msgid "Icon"
 msgstr "סמליל"
 
-msgctxt "#31076"
-msgid "Weather Fanart"
-msgstr "פאנארט מזג אוויר"
-
 msgctxt "#31077"
 msgid "Trending Movies"
 msgstr "‎סרטים טרנדיים"
@@ -489,14 +485,6 @@ msgstr "‎בחר צבע הדגשה משני"
 msgctxt "#31113"
 msgid "Reset colors to defaults"
 msgstr "‎אפס צבעים לברירת מחדל"
-
-msgctxt "#31114"
-msgid "Install weather fanart"
-msgstr "התקן פאנארט מזג אוויר"
-
-msgctxt "#31115"
-msgid "Show weather with clock"
-msgstr "הצג את מזג האוויר עם שעון"
 
 msgctxt "#31116"
 msgid "Animate fanart"
@@ -729,10 +717,6 @@ msgstr "סרגל בית שקוף"
 msgctxt "#31173"
 msgid "Home bar style"
 msgstr "סגנון סרגל הבית"
-
-msgctxt "#31174"
-msgid "Weather icons"
-msgstr "סמלילי מזג אוויר"
 
 msgctxt "#31175"
 msgid "Customise shutdown menu"

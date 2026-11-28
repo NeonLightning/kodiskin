@@ -474,18 +474,14 @@
     </include>
     <variable name="Defs_HomeWidget_Content">
         <value condition="String.IsEmpty(Container(9000).ListItem.Property(widget)) + !String.IsEmpty(Container(9000).ListItem.Property(background))">-</value>
-        <value condition="String.IsEqual(Container(9000).ListItem.Property(widget),Weather) + System.HasAddon(resource.images.weatherfanart.multi)">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,]/</value>
-        <value condition="[String.IsEqual(Skin.String(home.fallbackwidget),Weather) | String.IsEqual(Skin.String(home.fallbackwidget.node),Weather)] + System.HasAddon(resource.images.weatherfanart.multi)">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,]/</value>
         <value condition="!String.IsEmpty(Skin.String(home.fallbackwidget))">$INFO[Skin.String(home.fallbackwidget)]</value>
         <value>special://skin/extras/playlists/RandomMovies.xsp</value>
     </variable>
     <variable name="Defs_HomeWidget_Target">
-        <value condition="String.IsEqual(Container(9000).ListItem.Property(widget),Weather) + System.HasAddon(resource.images.weatherfanart.multi)">images</value>
         <value condition="!String.IsEmpty(Skin.String(home.fallbackwidget.target))">$INFO[Skin.String(home.fallbackwidget.target)]</value>
         <value>videos</value>
     </variable>
 
-    <include name="Defs_WeatherOpen"><onclick>ActivateWindow(weather)</onclick></include>
 
     <include name="Defs_SettingsScreen">
         <left>sidepad</left>
@@ -620,7 +616,7 @@
                 <item id="2">
                     <description>Skin Settings</description>
                     <label>20077</label>
-                    <label2>$LOCALIZE[10000] • $LOCALIZE[19190] • $LOCALIZE[31127][CR]$LOCALIZE[31126] • $LOCALIZE[478] • $LOCALIZE[31219]</label2>
+                    <label2>$LOCALIZE[31289] • $LOCALIZE[31290] • $LOCALIZE[31291][CR]$LOCALIZE[31126] • $LOCALIZE[31292] • $LOCALIZE[31293]</label2>
                     <onclick>activatewindow(skinsettings)</onclick>
                     <icon>special://skin/extras/icons/paintbrush.png</icon>
                 </item>

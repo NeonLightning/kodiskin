@@ -246,10 +246,6 @@ msgctxt "#31075"
 msgid "Icon"
 msgstr "Icono"
 
-msgctxt "#31076"
-msgid "Weather Fanart"
-msgstr ""
-
 msgctxt "#31077"
 msgid "Trending Movies"
 msgstr ""
@@ -397,14 +393,6 @@ msgstr ""
 msgctxt "#31113"
 msgid "Reset colors to defaults"
 msgstr ""
-
-msgctxt "#31114"
-msgid "Install weather fanart"
-msgstr ""
-
-msgctxt "#31115"
-msgid "Show weather with clock"
-msgstr "Mostrar el tiempo con reloj"
 
 msgctxt "#31116"
 msgid "Animate fanart"
@@ -637,10 +625,6 @@ msgstr ""
 msgctxt "#31173"
 msgid "Home bar style"
 msgstr ""
-
-msgctxt "#31174"
-msgid "Weather icons"
-msgstr "Iconos del tiempo"
 
 msgctxt "#31175"
 msgid "Customise shutdown menu"

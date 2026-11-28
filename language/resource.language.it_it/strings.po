@@ -339,10 +339,6 @@ msgctxt "#31075"
 msgid "Icon"
 msgstr "Icona"
 
-msgctxt "#31076"
-msgid "Weather Fanart"
-msgstr "Fanart Meteo"
-
 msgctxt "#31077"
 msgid "Trending Movies"
 msgstr "Film Di Tendenza"
@@ -490,14 +486,6 @@ msgstr "Seleziona colore di evidenziazione secondario"
 msgctxt "#31113"
 msgid "Reset colors to defaults"
 msgstr "Ripristina i colori ai valori predefiniti"
-
-msgctxt "#31114"
-msgid "Install weather fanart"
-msgstr "Installa fanart meteo"
-
-msgctxt "#31115"
-msgid "Show weather with clock"
-msgstr "Mostra meteo con l'orologio"
 
 msgctxt "#31116"
 msgid "Animate fanart"
@@ -730,10 +718,6 @@ msgstr "Barra Home trasparente"
 msgctxt "#31173"
 msgid "Home bar style"
 msgstr "Stile barra Home"
-
-msgctxt "#31174"
-msgid "Weather icons"
-msgstr "Icone meteo"
 
 msgctxt "#31175"
 msgid "Customise shutdown menu"

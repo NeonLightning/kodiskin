@@ -57,13 +57,6 @@
         <action>ActivateWindow(AddonBrowser)</action>
     </shortcut>
     <shortcut>
-        <label>8</label>
-        <label2>Common Shortcut</label2>
-        <defaultID>weather</defaultID>
-        <icon>special://skin/extras/icons/weather.png</icon>
-        <action>ActivateWindow(Weather)</action>
-    </shortcut>
-    <shortcut>
         <label>10004</label>
         <label2>Common Shortcut</label2>
         <defaultID>settings</defaultID>

@@ -232,7 +232,6 @@
                 <width>32</width>
                 <height>32</height>
                 <texture colordiffuse="LineLabel">$VAR[Image_RSS_Icon]</texture>
-                <!-- <visible>Player.HasMedia | [!Player.HasMedia + [system.getbool(lookandfeel.enablerssfeeds) | Window.IsVisible(SettingsCategory.xml)] + [Window.IsVisible(weather) | Window.IsVisible(home)]]</visible> -->
             </control>
             <control type="label">
                 <bottom>16</bottom>
@@ -650,22 +649,21 @@
         <value condition="Skin.HasSetting(header.colormatch)">$VAR[HighlightColor]</value>
         <!-- TODO : ADD TMDBHELPER EXT INFO TO VIDEO -->
         <!-- <value condition="VideoPlayer.IsFullscreen + TMDBHELPER">ObjectBackground</value> -->
-        <value condition="Window.IsVisible(home) | VideoPlayer.IsFullscreen | Window.IsVisible(visualisation) | Window.IsVisible(weather)">HomeBarBG</value>
+        <value condition="Window.IsVisible(home) | VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)">HomeBarBG</value>
         <value>ObjectBackground</value>
     </variable>
     <variable name="Furniture_TopBar_MainLabel_Color">
-        <value condition="Window.IsVisible(home) | VideoPlayer.IsFullscreen | Window.IsVisible(visualisation) | Window.IsVisible(weather)">HomeMainLabel</value>
+        <value condition="Window.IsVisible(home) | VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)">HomeMainLabel</value>
         <value>MainLabel</value>
     </variable>
     <variable name="Furniture_TopBar_SubLabel_Color">
-        <value condition="Window.IsVisible(home) | VideoPlayer.IsFullscreen | Window.IsVisible(visualisation) | Window.IsVisible(weather)">HomeSubLabel</value>
+        <value condition="Window.IsVisible(home) | VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)">HomeSubLabel</value>
         <value>SubLabel</value>
     </variable>
     <variable name="Furniture_TopBar_Header_MainLabel">
         <value condition="Window.IsVisible(DialogBusy.xml)">$LOCALIZE[20186]...</value>
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">$LOCALIZE[31149]</value>
         <value condition="Window.IsVisible(1190)">$INFO[Window(Home).Property(1190_MainLabel)]</value>
-        <value condition="Window.IsVisible(MyWeather.xml)">$LOCALIZE[8]</value>
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
         <value condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">$LOCALIZE[19032]</value>
         <value condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(11)">$LOCALIZE[19030]</value>
@@ -729,7 +727,6 @@
         <value condition="[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)]">$VAR[Label_PlayerStatus]</value>
         <value condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">$LOCALIZE[5]</value>
         <value condition="Window.IsVisible(EventLog.xml) | Window.IsVisible(filemanager) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsVisible(SettingsCategory.xml) | Window.IsActive(addonbrowser) | Window.IsVisible(SkinSettings.xml)">$LOCALIZE[5]</value>
-        <value condition="Window.IsVisible(weather)">$LOCALIZE[8]</value>
         <value condition="Window.IsVisible(AddonBrowser.xml)">$LOCALIZE[24001]</value>
         <value condition="Window.IsVisible(MyPlaylist.xml)">$LOCALIZE[559]</value>
 
@@ -757,7 +754,6 @@
         <value condition="[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + Player.HasVideo + VideoPlayer.Content(episodes)">special://skin/extras/icons/tv.png</value>
         <value condition="[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + Player.HasVideo + VideoPlayer.Content(livetv)">special://skin/extras/icons/livetv.png</value>
         <value condition="[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + Player.HasVideo">special://skin/extras/icons/video-addons.png</value>
-        <value condition="Window.IsVisible(weather)">special://skin/extras/icons/sun.png</value>
         <value condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(EventLog.xml) | Window.IsVisible(filemanager) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsVisible(SettingsCategory.xml) | Window.IsActive(addonbrowser) | Window.IsVisible(SkinSettings.xml)">special://skin/extras/icons/settings.png</value>
         <value condition="Window.IsVisible(AddonBrowser.xml)">special://skin/extras/icons/addons.png</value>
         <value condition="Window.IsVisible(MyPlaylist.xml)">special://skin/extras/icons/playlist.png</value>
@@ -788,7 +784,7 @@
             <include>Defs_HeaderDimensions</include>
             <texture>common/header.png</texture>
             <colordiffuse>$VAR[Furniture_TopBar_Tile_BGCOLOR]</colordiffuse>
-            <animation effect="fade" start="100" end="90" time="200" condition="Skin.HasSetting(home.transparent) + [Window.IsVisible(home) | Window.IsVisible(weather)]">Conditional</animation>
+            <animation effect="fade" start="100" end="90" time="200" condition="Skin.HasSetting(home.transparent) + Window.IsVisible(home)">Conditional</animation>
         </control>
     </include>
     <include name="Furniture_TopBar_Tile_Content">
@@ -960,18 +956,6 @@
         <control type="group">
             <posx>400r</posx>
             <visible>!Skin.HasSetting(disable.clockheader)</visible>
-            <animation effect="slide" start="0" end="92" condition="Skin.HasSetting(disable.weatherheader)">Conditional</animation>
-            <control type="image">
-                <posx>284</posx>
-                <posy>28</posy>
-                <width>100</width>
-                <height>100</height>
-                <fadetime>350</fadetime>
-                <aspectratio aligny="center" align="center">keep</aspectratio>
-                <texture colordiffuse="$VAR[Furniture_TopBar_MainLabel_Color]">$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
-                <visible>!Skin.HasSetting(disable.weatherheader)</visible>
-            </control>
-
             <control type="label">
                 <posx>270</posx><posy>25</posy><width>300</width><height>72</height>
                 <font>Font-Header</font><align>right</align><aligny>center</aligny>
@@ -1005,7 +989,7 @@
                 <width>100%</width>
                 <height>512</height>
                 <texture colordiffuse="7f000000">common/gradient.png</texture>
-                <visible>Window.IsVisible(weather) | Window.IsVisible(home) | VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
+                <visible>Window.IsVisible(home) | VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
             </control>
             <control type="group">
                 <include>Furniture_TopBar_Header</include>

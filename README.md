@@ -4,6 +4,12 @@ Terminal 80 is a dark Kodi skin with VGA text, terminal backgrounds, and phospho
 
 ![Terminal 80 Media Info 2 view with a sample movie library](extras/viewthumbs/57.jpg)
 
+## Build an installable skin
+
+Run `python3 scripts/build_skin.py` to validate the XML and package the current `addon.xml` version as `skin.terminal80-<version>.zip`. The ZIP contains the current skin source and assets under a `skin.terminal80/` folder; previous ZIPs are excluded.
+
+For the next release, run `python3 scripts/build_skin.py --bump-patch --note "Describe the changes"`. This increments the patch version in `addon.xml`, appends the note to `changelog.txt`, and builds the new ZIP. Commit the source changes and resulting ZIP together.
+
 ## Upstream attribution
 
 Original skin: **Eminence 2.0** by **jurialmunkey**.

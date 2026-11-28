@@ -339,10 +339,6 @@ msgctxt "#31075"
 msgid "Icon"
 msgstr ""
 
-msgctxt "#31076"
-msgid "Weather Fanart"
-msgstr ""
-
 msgctxt "#31077"
 msgid "Trending Movies"
 msgstr ""
@@ -489,14 +485,6 @@ msgstr ""
 
 msgctxt "#31113"
 msgid "Reset colors to defaults"
-msgstr ""
-
-msgctxt "#31114"
-msgid "Install weather fanart"
-msgstr ""
-
-msgctxt "#31115"
-msgid "Show weather with clock"
 msgstr ""
 
 msgctxt "#31116"
@@ -729,10 +717,6 @@ msgstr ""
 
 msgctxt "#31173"
 msgid "Home bar style"
-msgstr ""
-
-msgctxt "#31174"
-msgid "Weather icons"
 msgstr ""
 
 msgctxt "#31175"
@@ -1240,4 +1224,54 @@ msgstr ""
 
 msgctxt "#31288"
 msgid "Terminal"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31289"
+msgid "Home & widgets"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31290"
+msgid "Library views"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31291"
+msgid "Header & clock"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31292"
+msgid "Playback display"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31293"
+msgid "Layout & extras"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31294"
+msgid "Add-ons"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31295"
+msgid "Reset skin"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31296"
+msgid "Fill screen with panels"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31297"
+msgid "Clock & counters"
+msgstr ""
+
+#: /16x9/SkinSettings.xml
+msgctxt "#31298"
+msgid "Widget poster visibility"
 msgstr ""

@@ -166,17 +166,6 @@
                 <shadowcolor>FF000000</shadowcolor>
                 <font>font13</font>
                 <align>left</align>
-                <label>MyWeather.xml</label>
-                <visible>Window.IsVisible(MyWeather.xml)</visible>
-            </control>
-
-            <control type="label">
-                <width>780</width>
-                <height>21</height>
-                <textcolor>FF0000FF</textcolor>
-                <shadowcolor>FF000000</shadowcolor>
-                <font>font13</font>
-                <align>left</align>
                 <label>Settings.xml</label>
                 <visible>Window.IsVisible(Settings.xml)</visible>
             </control>

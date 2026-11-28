@@ -350,10 +350,6 @@ msgctxt "#31075"
 msgid "Icon"
 msgstr "Ikon"
 
-msgctxt "#31076"
-msgid "Weather Fanart"
-msgstr "Időjárás illusztráció"
-
 msgctxt "#31077"
 msgid "Trending Movies"
 msgstr "Filmirányzatok"
@@ -507,14 +503,6 @@ msgstr "Másodlagos kiemelő szín kiválasztása"
 msgctxt "#31113"
 msgid "Reset colors to defaults"
 msgstr "Színek alapértelmezettre visszaállítása"
-
-msgctxt "#31114"
-msgid "Install weather fanart"
-msgstr "Időjárás illusztráció telepítése"
-
-msgctxt "#31115"
-msgid "Show weather with clock"
-msgstr "Időjárás megjelenítése órával"
 
 msgctxt "#31116"
 msgid "Animate fanart"
@@ -751,10 +739,6 @@ msgstr "Áttetsző kezdőoldal sáv"
 msgctxt "#31173"
 msgid "Home bar style"
 msgstr "Kezdőoldal sáv kinézete"
-
-msgctxt "#31174"
-msgid "Weather icons"
-msgstr "Időjárás ikonok"
 
 msgctxt "#31175"
 msgid "Customise shutdown menu"

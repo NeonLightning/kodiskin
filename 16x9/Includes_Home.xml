@@ -32,7 +32,7 @@
         <control type="group">
             <bottom>-266</bottom>
             <height>64</height>
-            <visible>Window.IsVisible(home) | Window.IsVisible(weather)</visible>
+            <visible>Window.IsVisible(home)</visible>
             <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
             <animation effect="slide" end="0,-266" condition="true">Conditional</animation>
             <animation effect="slide" start="-1200" end="0" time="250">VisibleChange</animation>
@@ -620,7 +620,6 @@
         </control>
         <control type="grouplist">
             <visible>Integer.IsGreater(Container(9001).NumItems,0)</visible>
-            <visible>![String.IsEqual(Container(9000).ListItem.Property(widget),Weather) | [String.IsEmpty(Container(9000).ListItem.Property(widget)) + [String.IsEqual(Skin.String(home.fallbackwidget),Weather) | String.IsEqual(Skin.String(home.fallbackwidget.node),Weather)]]] | !System.HasAddon(resource.images.weatherfanart.multi)</visible>
             <include>Animation_FadeIn</include>
             <include>Animation_FadeOut</include>
             <animation effect="slide" start="0" end="-220" condition="!Container(9001).OnNext" reversible="false" time="200">Conditional</animation>
@@ -664,33 +663,6 @@
                 <param name="focuseditem" value="false" />
             </include>
         </control>
-        <control type="grouplist">
-            <left>850</left>
-            <right>0</right>
-            <orientation>horizontal</orientation>
-            <height>340</height>
-            <itemgap>70</itemgap>
-            <visible>!Container(9001).IsUpdating</visible>
-            <include>Animation_FadeIn</include>
-            <include>Animation_FadeOut</include>
-            <visible>[String.IsEqual(Container(9000).ListItem.Property(widget),Weather) | [String.IsEmpty(Container(9000).ListItem.Property(widget)) + [String.IsEqual(Skin.String(home.fallbackwidget),Weather) | String.IsEqual(Skin.String(home.fallbackwidget.node),Weather)]]] + System.HasAddon(resource.images.weatherfanart.multi)</visible>
-            <include content="Object_WeatherOutlook">
-                <param name="day" value="Day0" />
-                <param name="dayname" value="$LOCALIZE[33006]" />
-            </include>
-            <include content="Object_WeatherOutlook">
-                <param name="day" value="Day1" />
-                <param name="dayname" value="$INFO[Window(weather).Property(Day1.Title)]" />
-            </include>
-            <include content="Object_WeatherOutlook">
-                <param name="day" value="Day2" />
-                <param name="dayname" value="$INFO[Window(weather).Property(Day2.Title)]" />
-            </include>
-            <include content="Object_WeatherOutlook">
-                <param name="day" value="Day3" />
-                <param name="dayname" value="$INFO[Window(weather).Property(Day3.Title)]" />
-            </include>
-        </control>
     </include>
     <include name="Home_Widget">
         <control type="group">
@@ -728,7 +700,7 @@
         <control type="group">
             <animation effect="slide" end="0,160" condition="String.IsEqual(Skin.String(home.style),$LOCALIZE[31182])">Conditional</animation>
             <control type="group">
-                <visible>Window.IsVisible(home) | Window.IsVisible(weather)</visible>
+                <visible>Window.IsVisible(home)</visible>
                 <!-- <visible>![Control.HasFocus(9001) | Control.HasFocus(9101)]</visible> -->
                 <visible>!Window.IsActive(DialogNotification.xml)</visible>
                 <visible>!Window.IsActive(DialogExtendedProgressBar.xml)</visible>
@@ -769,7 +741,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Window.IsVisible(home) | Window.IsVisible(weather)</visible>
+                <visible>Window.IsVisible(home)</visible>
                 <visible>!Window.IsActive(DialogNotification.xml)</visible>
                 <visible>!Window.IsActive(DialogExtendedProgressBar.xml)</visible>
                 <visible>Player.HasMedia</visible>

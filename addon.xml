@@ -1,10 +1,9 @@
-<addon id="skin.terminal80" name="Terminal 80" provider-name="Terminal 80 Project" version="1.0.10">
+<addon id="skin.terminal80" name="Terminal 80" provider-name="Terminal 80 Project" version="1.0.11">
     <requires>
         <import addon="xbmc.gui" version="5.17.0" />
         <import addon="script.skinshortcuts" version="1.0.0" />
         <import addon="plugin.video.themoviedb.helper" version="4.4.0" />
         <import addon="script.image.resource.select" version="3.0.2" />
-        <import addon="resource.images.weathericons.white" version="0.0.6" />
     </requires>
     <extension debugging="false" effectslowdown="1.00" point="xbmc.gui.skin">
         <res aspect="16:9" default="true" folder="16x9" height="1080" width="1920" />
