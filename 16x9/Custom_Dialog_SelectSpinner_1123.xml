@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1123">
+    <defaultcontrol always="true">9001</defaultcontrol>
+    <onload condition="Skin.String(BusySpinner,Dots)">SetFocus(9002)</onload>
+    <onload condition="Skin.String(BusySpinner,Tube)">SetFocus(9003)</onload>
+    <onload condition="Skin.String(BusySpinner,Kitty)">SetFocus(9004)</onload>
+    <controls>
+        <include>GlobalOverlay</include>
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <centertop>50%</centertop>
+            <width>740</width>
+            <height>414</height>
+            <include>Dialog_Background</include>
+            <include>Animation_SlideIn</include>
+            <include>Animation_FadeOut</include>
+            <include content="Dialog_Top_IconHeader">
+                <param name="label" value="$LOCALIZE[31160]" />
+                <param name="icon" value="special://skin/extras/icons/timer.png" />
+            </include>
+            <control type="grouplist" id="9000">
+                <left>20</left>
+                <top>90</top>
+                <width>394</width>
+                <height>304</height>
+                <itemgap>4</itemgap>
+                <orientation>vertical</orientation>
+                <include content="Dialog_SpinnerOption">
+                    <param name="id" value="9001" />
+                    <param name="name" value="Terminal" />
+                    <param name="label" value="31288" />
+                    <param name="selected" value="![Skin.String(BusySpinner,Dots) | Skin.String(BusySpinner,Tube) | Skin.String(BusySpinner,Kitty)]" />
+                </include>
+                <include content="Dialog_SpinnerOption">
+                    <param name="id" value="9002" />
+                    <param name="name" value="Dots" />
+                    <param name="label" value="31256" />
+                    <param name="selected" value="Skin.String(BusySpinner,Dots)" />
+                </include>
+                <include content="Dialog_SpinnerOption">
+                    <param name="id" value="9003" />
+                    <param name="name" value="Tube" />
+                    <param name="label" value="31257" />
+                    <param name="selected" value="Skin.String(BusySpinner,Tube)" />
+                </include>
+                <include content="Dialog_SpinnerOption">
+                    <param name="id" value="9004" />
+                    <param name="name" value="Kitty" />
+                    <param name="label" value="31258" />
+                    <param name="selected" value="Skin.String(BusySpinner,Kitty)" />
+                </include>
+            </control>
+            <control type="group">
+                <left>434</left>
+                <right>20</right>
+                <top>90</top>
+                <bottom>20</bottom>
+                <include>Object_FlatBackground</include>
+                <control type="multiimage">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>128</width>
+                    <height>128</height>
+                    <aspectratio>keep</aspectratio>
+                    <imagepath>$VAR[Image_SpinnerPreview]</imagepath>
+                    <timeperimage>75</timeperimage>
+                    <fadetime>0</fadetime>
+                    <colordiffuse>HomeBarFG</colordiffuse>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

@@ -147,7 +147,7 @@
                     <param name="width" value="listmediainfow" />
                     <param name="id" value="57" />
                     <param name="label3" value="false" />
-                    <param name="condition" value="[Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies)) ]] | [Container.Content(sets) + [String.IsEqual(Skin.String(Skin.ForcedView.sets),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.sets)) ]] | [Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows)) ]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons)) ]] | [Container.Content(episodes) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes)) ]]" />
+                    <param name="condition" value="[Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies)) ]] | [Container.Content(sets) + [String.IsEqual(Skin.String(Skin.ForcedView.sets),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.sets)) ]] | [Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows)) ]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons)) ]] | [Container.Content(episodes) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes)) ]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos)) ]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$LOCALIZE[31143]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos)) ]]" />
                 </include>
             </control>
             <include>Object_ExtraInfo2</include>
@@ -232,22 +232,7 @@
                     <font>Font-ListInfo-Small-Bold</font>
                     <label>$VAR[Label_GenreLine,[UPPERCASE],[/UPPERCASE]]</label>
                 </control>
-        <control type="group">
-            <height>54</height>
-            <width>100%</width>
-            <control type="image">
-                <left>pad</left><top>2</top><width>116</width><height>48</height>
-                <aspectratio>keep</aspectratio>
-                <texture>$VAR[Image_NetworkBadge]</texture>
-                <visible>!String.IsEmpty($VAR[Image_NetworkBadge])</visible>
-            </control>
-            <control type="label">
-                <left>pad</left><top>0</top><right>pad</right><height>50</height>
-                <font>Font-ListInfo-Small-Bold</font><textcolor>Highlight2</textcolor>
-                <label>$INFO[ListItem.Property(Network)]$INFO[ListItem.Studio,  /  ]</label>
-                <visible>String.IsEmpty($VAR[Image_NetworkBadge]) + [!String.IsEmpty(ListItem.Property(Network)) | !String.IsEmpty(ListItem.Studio)]</visible>
-            </control>
-        </control>
+                <include>Object_StudioNetwork</include>
                 <control type="textbox">
                     <top>16</top>
                     <left>pad</left>
@@ -442,27 +427,16 @@
                     <font>Font-ListInfo-Small-Bold</font>
                     <label>$VAR[Label_GenreLine,[UPPERCASE],[/UPPERCASE]]</label>
                 </control>
-        <control type="group">
-            <height>54</height>
-            <width>100%</width>
-            <control type="image">
-                <left>pad</left><top>2</top><width>116</width><height>48</height>
-                <aspectratio>keep</aspectratio>
-                <texture>$VAR[Image_NetworkBadge]</texture>
-                <visible>!String.IsEmpty($VAR[Image_NetworkBadge])</visible>
-            </control>
-            <control type="label">
-                <left>pad</left><top>0</top><right>pad</right><height>50</height>
-                <font>Font-ListInfo-Small-Bold</font><textcolor>Highlight2</textcolor>
-                <label>$INFO[ListItem.Property(Network)]$INFO[ListItem.Studio,  /  ]</label>
-                <visible>String.IsEmpty($VAR[Image_NetworkBadge]) + [!String.IsEmpty(ListItem.Property(Network)) | !String.IsEmpty(ListItem.Studio)]</visible>
-            </control>
-        </control>
+                <include content="Object_StudioNetwork">
+                    <param name="inset" value="30" />
+                    <param name="top" value="93" />
+                    <param name="height" value="28" />
+                </include>
                 <control type="textbox">
-                    <top>115</top>
+                    <top>126</top>
                     <left>30</left>
                     <right>30</right>
-                    <height>190</height>
+                    <height>179</height>
                     <font>Font-ListInfo</font>
                     <align>left</align>
                     <autoscroll>false</autoscroll>
@@ -471,10 +445,10 @@
                     <visible>Skin.HasSetting(furniture.showflags) + Skin.HasSetting(furniture.flags.extradetail)</visible>
                 </control>
                 <control type="textbox">
-                    <top>115</top>
+                    <top>126</top>
                     <left>30</left>
                     <right>30</right>
-                    <height>154</height>
+                    <height>143</height>
                     <font>Font-ListInfo</font>
                     <align>left</align>
                     <autoscroll>false</autoscroll>
@@ -539,7 +513,7 @@
                             <include>Object_Background</include>
                             <control type="image">
                                 <left>0</left><top>0</top><width>100%</width><height>100%</height>
-                                <texture>extras/focus_terminal.png</texture>
+                                <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             </control>
                             <control type="group">
                                 <width>622</width>
@@ -571,27 +545,16 @@
                                     <font>Font-ListInfo-Small-Bold</font>
                                     <label>$VAR[Label_GenreLine,[UPPERCASE],[/UPPERCASE]]</label>
                                 </control>
-        <control type="group">
-            <height>54</height>
-            <width>100%</width>
-            <control type="image">
-                <left>pad</left><top>2</top><width>116</width><height>48</height>
-                <aspectratio>keep</aspectratio>
-                <texture>$VAR[Image_NetworkBadge]</texture>
-                <visible>!String.IsEmpty($VAR[Image_NetworkBadge])</visible>
-            </control>
-            <control type="label">
-                <left>pad</left><top>0</top><right>pad</right><height>50</height>
-                <font>Font-ListInfo-Small-Bold</font><textcolor>Highlight2</textcolor>
-                <label>$INFO[ListItem.Property(Network)]$INFO[ListItem.Studio,  /  ]</label>
-                <visible>String.IsEmpty($VAR[Image_NetworkBadge]) + [!String.IsEmpty(ListItem.Property(Network)) | !String.IsEmpty(ListItem.Studio)]</visible>
-            </control>
-        </control>
+                                <include content="Object_StudioNetwork">
+                                    <param name="inset" value="30" />
+                                    <param name="top" value="93" />
+                                    <param name="height" value="28" />
+                                </include>
                                 <control type="textbox">
-                                    <top>115</top>
+                                    <top>126</top>
                                     <left>30</left>
                                     <right>30</right>
-                                    <height>190</height>
+                                    <height>179</height>
                                     <font>Font-ListInfo</font>
                                     <align>left</align>
                                     <textcolor>Selected</textcolor>
@@ -599,10 +562,10 @@
                                     <visible>Skin.HasSetting(furniture.showflags) + Skin.HasSetting(furniture.flags.extradetail)</visible>
                                 </control>
                                 <control type="textbox">
-                                    <top>115</top>
+                                    <top>126</top>
                                     <left>30</left>
                                     <right>30</right>
-                                    <height>154</height>
+                                    <height>143</height>
                                     <font>Font-ListInfo</font>
                                     <align>left</align>
                                     <textcolor>Selected</textcolor>
@@ -843,7 +806,7 @@
         <definition>
             <control type="image">
                 <left>0</left><top>0</top><width>100%</width><height>100%</height>
-                <texture>extras/focus_terminal.png</texture>
+                <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
             </control>
             
             
@@ -1090,7 +1053,7 @@
     <include name="View_BigList_FocusedLayout">
         <control type="image">
             <left>0</left><top>0</top><width>100%</width><height>100%</height>
-            <texture>extras/focus_terminal.png</texture>
+            <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
         </control>
         <control type="image">
             <left>bigpad</left>

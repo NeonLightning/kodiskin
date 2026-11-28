@@ -85,7 +85,7 @@
                     <control type="image">
                         <width>100%</width>
                         <height>109</height>
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                     <control type="image">
                         <width>100%</width>

@@ -1,6 +1,7 @@
 <colors>
     <color name="Background">ff020704</color>
     <color name="FanartFade">e6020805</color>
+    <color name="TerminalBackgroundInk">ffa0ffbb</color>
     <color name="HomeBarBG">f006100a</color>
     <color name="HomeBarFG">ff83ffad</color>
     <color name="HomeBarTile">a00b2414</color>
@@ -9,8 +10,11 @@
     <color name="Highlight">ff36f879</color>
     <color name="FocusFill">f503160b</color>
     <color name="FocusBorder">ff36f879</color>
+    <color name="ConfirmPositiveFill">ff165c32</color>
+    <color name="ConfirmNegativeFill">ff702e32</color>
+    <color name="ConfirmOtherFill">ff30412b</color>
     <color name="Highlight2">ff9bffb7</color>
-    <color name="Selected">fff0fff3</color>
+    <color name="Selected">ffffcc66</color>
     <color name="MainLabel">ff9dffb5</color>
     <color name="SubLabel">bf78c991</color>
     <color name="HomeMainLabel">ff9dffb5</color>
@@ -19,6 +23,7 @@
     <color name="SideArrow">7f4b9860</color>
     <color name="PosterBorder">7f174328</color>
     <color name="ObjectBackground">b0081b10</color>
+    <color name="MediaLogoBackground">ff505d54</color>
     <color name="ListLabel">df9dffb5</color>
     <color name="Disabled">5f719a7c</color>
     <color name="ListBG">e609170d</color>

@@ -92,7 +92,7 @@
                     <visible>Control.HasFocus(9500)</visible>
                     <control type="image">
                         <animation effect="fade" start="100" end="75" condition="true">Conditional</animation>
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                     <visible>!Skin.HasSetting(furniture.hidehubplot)</visible>
                     <control type="grouplist">
@@ -155,7 +155,7 @@
                 </control>
                 <control type="image">
                 	<visible>!Integer.IsGreater(Container(9500).NumItems,0)</visible>
-                	<texture fallback="special://skin/extras/backgrounds/home.jpg">$INFO[Skin.String(background.fallback)]</texture>
+                    <texture background="true" colordiffuse="TerminalBackgroundInk">$VAR[Image_Background]</texture>
                 </control>
             </control>
             <control type="group" description="hub side">
@@ -196,7 +196,7 @@
                             <width>100%</width>
                             <top>0</top>
                             <bottom>0</bottom>
-                            <texture border="8">extras/focus_terminal.png</texture>
+                            <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                         </control>
                         <control type="image">
                             <right>pad</right>
@@ -244,7 +244,7 @@
                         <width>100%</width>
                         <height>100%</height>
                         <aspectratio>scale</aspectratio>
-                        <texture background="true" fallback="special://skin/extras/backgrounds/home.jpg">$VAR[Image_HubFanart]</texture>
+                        <texture background="true" fallback="special://skin/extras/backgrounds/terminal80_home.jpg">$VAR[Image_HubFanart]</texture>
                     </control>
                 </itemlayout>
                 <focusedlayout width="1280" height="720">
@@ -252,7 +252,7 @@
                         <width>100%</width>
                         <height>100%</height>
                         <aspectratio>scale</aspectratio>
-                        <texture background="true" fallback="special://skin/extras/backgrounds/home.jpg">$VAR[Image_HubFanart]</texture>
+                        <texture background="true" fallback="special://skin/extras/backgrounds/terminal80_home.jpg">$VAR[Image_HubFanart]</texture>
                     </control>
                 </focusedlayout>
                 <content target="$PARAM[target]">$PARAM[content]</content>
@@ -738,7 +738,7 @@
                             <control type="image">
                                 <width>667</width>
                                 <height>100%</height>
-                                <texture border="8">extras/focus_terminal.png</texture>
+                                <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             </control>
                             <control type="image">
                                 <left>-8</left>

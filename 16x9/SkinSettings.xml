@@ -6,7 +6,6 @@
     <onload condition="String.IsEmpty(Skin.String(home.mainheadertext))">Skin.SetString(home.mainheadertext,$LOCALIZE[31158])</onload>
     <onload condition="String.IsEmpty(Skin.String(home.headertext))">Skin.SetString(home.headertext,$LOCALIZE[10000])</onload>
     <onload condition="String.IsEmpty(Skin.String(home.widgetposters))">Skin.SetString(home.widgetposters,$LOCALIZE[31153])</onload>
-    <onload condition="Skin.HasSetting(EnableColorFilter) + String.IsEmpty(Skin.String(global.background))">Skin.SetString(global.background,special://skin/extras/backgrounds/overlays/pattern0.jpg)</onload>
     <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1111|x1112|x1113|x1114|x1115|x1116|x1117|x1118|x1119|powermenu)</onunload>
     <include condition="!Skin.HasSetting(store_init)">Defs_Store_Init</include>
     
@@ -179,7 +178,6 @@
                             <width>100%</width>
                             <label>31147</label>
                             <label2>$VAR[Label_SkinSetting_FallbackWidget]</label2>
-                            <onclick condition="!String.IsEmpty(Skin.String(widget.background.fallback))">Skin.Reset(widget.background.fallback)</onclick>
                             <onclick>SetProperty(home.fallbackwidget.name,$INFO[Skin.String(home.fallbackwidget.name)],home)</onclick>
                             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;grouping=widget&amp;skinWidgetPath=home.fallbackwidget&amp;skinWidget=home.fallbackwidget.node&amp;skinWidgetName=home.fallbackwidget.name&amp;skinWidgetType=home.fallbackwidget.type&amp;skinWidgetTarget=home.fallbackwidget.target)</onclick>
                             <height>72</height>
@@ -187,18 +185,6 @@
                             <visible>ControlGroup(8000).HasFocus(8001)</visible>
                         </control>
 
-                        <!-- Replace Fallback with Image -->
-                        <control type="button" id="8143">
-                            <width>100%</width>
-                            <label>$LOCALIZE[31282]</label>
-                            <label2>$INFO[Skin.String(widget.background.fallback)]</label2>
-                            <onclick condition="String.IsEmpty(Skin.String(widget.background.fallback))">Skin.SetImage(widget.background.fallback)</onclick>
-                            <onclick condition="!String.IsEmpty(Skin.String(widget.background.fallback))">Skin.Reset(widget.background.fallback)</onclick>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8001)</visible>
-                        </control>
-                        
                         <!-- Widget Info Box -->
                         <control type="radiobutton" id="8105">
                             <width>100%</width>
@@ -398,108 +384,14 @@
                             <include>Defs_OptionButton</include>
                             <visible>ControlGroup(8000).HasFocus(8002)</visible>
                         </control>
-                        <!-- Fanart -->
-                        <control type="radiobutton" id="8202">
+                        <control type="button" id="8202">
                             <width>100%</width>
-                            <label>31021</label>
-                            <radioposx>settingsradioposx</radioposx>
-                            <selected>!Skin.HasSetting(background.hidefanart) + !String.IsEqual(Skin.String(fanart.opacity),100)</selected>
-                            <onclick condition="!String.IsEqual(Skin.String(fanart.opacity),100)">Skin.ToggleSetting(background.hidefanart)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),100)">Skin.Reset(background.hidefanart)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),100)">Skin.SetString(fanart.opacity,90)</onclick>
+                            <label>31284</label>
+                            <label2>$VAR[Label_SkinSetting_TerminalBackground]</label2>
+                            <onclick condition="!Skin.String(TerminalBackground,Diagnostics) + !Skin.String(TerminalBackground,Directory)">Skin.SetString(TerminalBackground,Diagnostics)</onclick>
+                            <onclick condition="Skin.String(TerminalBackground,Diagnostics)">Skin.SetString(TerminalBackground,Directory)</onclick>
+                            <onclick condition="Skin.String(TerminalBackground,Directory)">Skin.Reset(TerminalBackground)</onclick>
                             <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8002)</visible>
-                        </control>
-                        <!-- Show background video -->
-                        <control type="radiobutton" id="8203">
-                            <width>100%</width>
-                            <label>31027</label>
-                            <radioposx>settingsradioposx</radioposx>
-                            <selected>Skin.HasSetting(background.showvideo)</selected>
-                            <onclick>Skin.ToggleSetting(background.showvideo)</onclick>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8002)</visible>
-                        </control>
-                        <!-- Show background music -->
-                        <control type="radiobutton" id="8204">
-                            <width>100%</width>
-                            <label>31028</label>
-                            <radioposx>settingsradioposx</radioposx>
-                            <selected>Skin.HasSetting(background.showvisualisation)</selected>
-                            <onclick>Skin.ToggleSetting(background.showvisualisation)</onclick>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8002)</visible>
-                        </control>
-                        <!-- Animate Fanart -->
-                        <control type="radiobutton" id="8205">
-                            <width>100%</width>
-                            <label>31116</label>
-                            <radioposx>settingsradioposx</radioposx>
-                            <selected>Skin.HasSetting(background.animate)</selected>
-                            <onclick>Skin.ToggleSetting(background.animate)</onclick>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8002)</visible>
-                        </control>
-                        <!-- Overlay -->
-                        <control type="button" id="8206">
-                            <width>100%</width>
-                            <label>31159</label>
-                            <label2>$VAR[Label_SkinSetting_GlobalOverlay]</label2>
-                            <onclick condition="String.IsEmpty(Skin.String(global.background)) | Skin.HasSetting(EnableColorFilter)">Skin.SetImage(global.background,special://skin/extras/backgrounds/overlays/)</onclick>
-                            <onclick condition="!String.IsEmpty(Skin.String(global.background)) + !Skin.HasSetting(EnableColorFilter)">Skin.Reset(global.background)</onclick>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8002)</visible>
-                        </control>
-                        <control type="radiobutton" id="8209">
-                            <width>100%</width>
-                            <label>$LOCALIZE[31050]</label>
-                            <radioposx>settingsradioposx</radioposx>
-                            <selected>Skin.HasSetting(EnableColorFilter) + !String.IsEmpty(Skin.String(global.background))</selected>
-                            <onclick condition="!Skin.HasSetting(EnableColorFilter) + String.IsEmpty(Skin.String(global.background))">Skin.SetBool(overlay.patterntemp)</onclick>
-                            <onclick condition="!Skin.HasSetting(EnableColorFilter) + String.IsEmpty(Skin.String(global.background))">Skin.SetString(global.background,special://skin/extras/backgrounds/overlays/pattern0.jpg)</onclick>
-
-                            <onclick condition="Skin.HasSetting(EnableColorFilter) + String.IsEqual(Skin.String(global.background),special://skin/extras/backgrounds/overlays/pattern0.jpg) + Skin.HasSetting(overlay.patterntemp)">Skin.Reset(global.background)</onclick>
-                            <onclick condition="Skin.HasSetting(EnableColorFilter) + String.IsEqual(Skin.String(global.background),special://skin/extras/backgrounds/overlays/pattern0.jpg) + Skin.HasSetting(overlay.patterntemp)">Skin.Reset(overlay.patterntemp)</onclick>
-
-                            <onclick>Skin.ToggleSetting(EnableColorFilter)</onclick>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8002)</visible>
-                        </control>
-                        <!-- Fallback Fanart -->
-                        <control type="button" id="8207">
-                            <width>100%</width>
-                            <label>31146</label>
-                            <label2>$VAR[Label_SkinSetting_FallbackFanart]</label2>
-                            <onclick condition="String.IsEmpty(Skin.String(background.fallback))">Skin.SetImage(background.fallback)</onclick>
-                            <onclick condition="!String.IsEmpty(Skin.String(background.fallback))">Skin.Reset(background.fallback)</onclick>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <visible>ControlGroup(8000).HasFocus(8002)</visible>
-                        </control>
-                        <!-- Fanart Opacity -->
-                        <control type="button" id="8208">
-                            <width>100%</width>
-                            <label>31235</label>
-                            <height>72</height>
-                            <onclick condition="!String.IsEqual(Skin.String(fanart.opacity),50) + Skin.HasSetting(background.hidefanart)">Skin.Reset(background.hidefanart)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),100)">Skin.SetString(fanart.opacity,90)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),90) | String.IsEmpty(Skin.String(fanart.opacity))">Skin.SetString(fanart.opacity,80)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),80)">Skin.SetString(fanart.opacity,70)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),70)">Skin.SetString(fanart.opacity,60)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),60)">Skin.SetString(fanart.opacity,50)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),50)">Skin.SetBool(background.hidefanart)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),50)">Skin.SetString(fanart.opacity,100)</onclick>
-                            <!-- <onclick condition="String.IsEqual(Skin.String(fanart.opacity),50)">Skin.SetString(fanart.opacity,40)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),40)">Skin.SetString(fanart.opacity,30)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),30)">Skin.SetString(fanart.opacity,20)</onclick>
-                            <onclick condition="String.IsEqual(Skin.String(fanart.opacity),20)">Skin.SetString(fanart.opacity,10)</onclick> -->
-                            <label2 fallback="90%">$INFO[Skin.String(fanart.opacity),, %]</label2>
                             <include>Defs_OptionButton</include>
                             <visible>ControlGroup(8000).HasFocus(8002)</visible>
                         </control>
@@ -578,49 +470,6 @@
                             <include>Defs_OptionButton</include>
                             <visible>ControlGroup(8000).HasFocus(8003)</visible>
                         </control>
-                        <control type="radiobutton" id="8302" description="Show Fanart">
-                            <visible>ControlGroup(8000).HasFocus(8003)</visible>
-                            <width>100%</width>
-                            <radioposx>settingsradioposx</radioposx>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <label>31021</label>
-                            <selected>Skin.HasSetting(musicvis.fanartfallback)</selected>
-                            <enable>!Skin.HasSetting(ArtistSlideShow.Enabled)</enable>
-                            <onclick>Skin.ToggleSetting(musicvis.fanartfallback)</onclick>
-                        </control>
-                        <control type="radiobutton" id="8303" description="Use artist slideshow">
-                            <visible>ControlGroup(8000).HasFocus(8003)</visible>
-                            <width>100%</width>
-                            <radioposx>settingsradioposx</radioposx>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <label>31120</label>
-                            <selected>Skin.HasSetting(ArtistSlideShow.Enabled)</selected>
-                            <onclick>Skin.ToggleSetting(ArtistSlideShow.Enabled)</onclick>
-                        </control>
-                        <control type="radiobutton" id="8304" description="Show visualisation with slideshow">
-                            <visible>ControlGroup(8000).HasFocus(8003)</visible>
-                            <width>100%</width>
-                            <radioposx>settingsradioposx</radioposx>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <label>31119</label>
-                            <selected>Skin.HasSetting(OSDVisualisation.ShowFanart)</selected>
-                            <onclick>Skin.ToggleSetting(OSDVisualisation.ShowFanart)</onclick>
-                            <enable>Skin.HasSetting(musicvis.fanartfallback) | Skin.HasSetting(ArtistSlideShow.Enabled)</enable>
-                        </control>
-                        <control type="radiobutton" id="8305" description="Animate Artist slideshow">
-                            <visible>ControlGroup(8000).HasFocus(8003)</visible>
-                            <width>100%</width>
-                            <radioposx>settingsradioposx</radioposx>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <label>31118</label>
-                            <selected>Skin.HasSetting(ArtistSlideshow.Animate)</selected>
-                            <onclick>Skin.ToggleSetting(ArtistSlideshow.Animate)</onclick>
-                            <enable>Skin.HasSetting(musicvis.fanartfallback) | Skin.HasSetting(ArtistSlideShow.Enabled)</enable>
-                        </control>
                         <control type="radiobutton" id="8309" description="Video Lyrics">
                             <visible>ControlGroup(8000).HasFocus(8003)</visible>
                             <width>100%</width>
@@ -634,16 +483,6 @@
                             <onclick>SetFocus(8003)</onclick>
                             <onclick>AlarmClock(setfo,SetFocus(8309),00:00,silent)</onclick>
                             <enable>System.HasAddon(script.cu.lrclyrics)</enable>
-                        </control>
-                        <control type="radiobutton" id="8311" description="Show colour overlay">
-                            <visible>ControlGroup(8000).HasFocus(8003)</visible>
-                            <width>100%</width>
-                            <radioposx>settingsradioposx</radioposx>
-                            <height>72</height>
-                            <include>Defs_OptionButton</include>
-                            <label>$LOCALIZE[31025]</label>
-                            <selected>Skin.HasSetting(ShowOSDDiffuseColors)</selected>
-                            <onclick>Skin.ToggleSetting(ShowOSDDiffuseColors)</onclick>
                         </control>
                         <control type="radiobutton" id="8312" description="Show scrolling background text">
                             <visible>ControlGroup(8000).HasFocus(8003)</visible>
@@ -1229,9 +1068,7 @@
                             <width>100%</width>
                             <label>31160</label>
                             <label2>$VAR[Label_SkinSetting_BusyTexture]</label2>
-                            <onclick condition="String.IsEmpty(BusySpinner) | Skin.String(BusySpinner,Dots)">Skin.SetString(BusySpinner,Tube)</onclick>
-                            <onclick condition="Skin.String(BusySpinner,Tube)">Skin.SetString(BusySpinner,Kitty)</onclick>
-                            <onclick condition="Skin.String(BusySpinner,Kitty)">Skin.SetString(BusySpinner,Dots)</onclick>
+                            <onclick>ActivateWindow(1123)</onclick>
                             <height>72</height>
                             <include>Defs_OptionButton</include>
                             <visible>ControlGroup(8000).HasFocus(8009)</visible>

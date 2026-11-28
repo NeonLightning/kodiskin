@@ -1,0 +1,30 @@
+<colors>
+    <color name="Background">ff020812</color>
+    <color name="FanartFade">e6040b17</color>
+    <color name="TerminalBackgroundInk">ffa2ddff</color>
+    <color name="HomeBarBG">f0061324</color>
+    <color name="HomeBarFG">ffa4ddff</color>
+    <color name="HomeBarTile">a0142842</color>
+    <color name="HomeWidgetBG">e60a1629</color>
+    <color name="DialogBG">f50b1a2c</color>
+    <color name="Highlight">ff59caff</color>
+    <color name="FocusFill">f5082038</color>
+    <color name="FocusBorder">ff59caff</color>
+    <color name="ConfirmPositiveFill">ff165c32</color>
+    <color name="ConfirmNegativeFill">ff702e32</color>
+    <color name="ConfirmOtherFill">ff25415e</color>
+    <color name="Highlight2">ffbee8ff</color>
+    <color name="Selected">ffffcd76</color>
+    <color name="MainLabel">ffb9e5ff</color>
+    <color name="SubLabel">bf8db7db</color>
+    <color name="HomeMainLabel">ffb9e5ff</color>
+    <color name="HomeSubLabel">bf8db7db</color>
+    <color name="LineLabel">9f7ca9d5</color>
+    <color name="SideArrow">7f6389b2</color>
+    <color name="PosterBorder">7f2e5278</color>
+    <color name="ObjectBackground">b00b1d33</color>
+    <color name="MediaLogoBackground">ff4d5a66</color>
+    <color name="ListLabel">dfb9e5ff</color>
+    <color name="Disabled">5f7191ab</color>
+    <color name="ListBG">e60b192b</color>
+</colors>

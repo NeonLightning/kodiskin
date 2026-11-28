@@ -368,28 +368,7 @@
                                     </control>
                                 </control>
 
-                                <!-- Studio -->
-                                <control type="group">
-                                    <height>36</height>
-                                    <width>100%</width>
-                                    <visible>!String.IsEmpty(ListItem.Studio)</visible>
-                                    <control type="label">
-                                        <width>200</width>
-                                        <height>36</height>
-                                        <align>left</align>
-                                        <font>Font-ListInfo-Small</font>
-                                        <textcolor>ListLabel</textcolor>
-                                        <label>572</label>
-                                    </control>
-                                    <control type="label">
-                                        <left>220</left>
-                                        <align>left</align>
-                                        <height>36</height>
-                                        <font>Font-ListInfo-Bold</font>
-                                        <label>$INFO[ListItem.Studio]</label>
-                                        <textcolor>SubLabel</textcolor>
-                                    </control>
-                                </control>
+                                <include>Object_StudioNetwork</include>
                             </control>
                         </control>
                     </control>

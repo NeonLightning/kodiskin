@@ -1,7 +1,6 @@
-<addon id="skin.terminal80" name="Terminal 80" provider-name="Terminal 80 Project" version="1.0.3">
+<addon id="skin.terminal80" name="Terminal 80" provider-name="Terminal 80 Project" version="1.0.10">
     <requires>
         <import addon="xbmc.gui" version="5.17.0" />
-        <import addon="resource.images.studios.coloured" version="0.0.24" />
         <import addon="script.skinshortcuts" version="1.0.0" />
         <import addon="plugin.video.themoviedb.helper" version="4.4.0" />
         <import addon="script.image.resource.select" version="3.0.2" />
@@ -13,33 +12,31 @@
     <extension point="xbmc.addon.metadata">
         <platform>all</platform>
         <summary lang="en_GB">A phosphor-green cyber terminal interface for Kodi.</summary>
-        <summary lang="hu_HU">Tiszta, világos, egyszerű, modern.</summary>
-        <summary lang="it_IT">Pulita, chiara, semplice, moderna.</summary>
-        <summary lang="zh_CN">干净、清晰、简单、现代。</summary>
+        <summary lang="hu_HU">Foszforzöld terminálfelület a Kodihoz.</summary>
+        <summary lang="it_IT">Un'interfaccia per Kodi in stile terminale verde fosforo.</summary>
+        <summary lang="zh_CN">适用于 Kodi 的荧光绿终端风格界面。</summary>
         <disclaimer lang="en_GB">Mouse and Touch device not supported</disclaimer>
         <disclaimer lang="hu_HU">Egér és érintőpad eszköz nem támogatott</disclaimer>
         <disclaimer lang="it_IT">Mouse e dispositivi touch non sono supportati</disclaimer>
         <disclaimer lang="zh_CN">不支持鼠标和触摸设备</disclaimer>
-        <description lang="en_GB">Terminal 80 is a dark, phosphor-green media interface inspired by late-1980s and 1990s hacker terminals. Built from the Eminence 2.0 skin framework.</description>
-        <description lang="hu_HU">Az Eminence egy olyan felszín, amelynek célja, hogy tiszta, világos, egyszerű és modern legyen.</description>
-        <description lang="it_IT">Eminence è una skin che mira ad essere pulita, chiara, semplice e moderna.</description>
-        <description lang="zh_CN">Eminence 是一款追求干净、清晰、简单和现代风格的皮肤。</description>
+        <description lang="en_GB">Terminal 80 is a dark, phosphor-green Kodi skin inspired by computer terminals from the late 1980s and 1990s.</description>
+        <description lang="hu_HU">A Terminal 80 sötét, foszforzöld Kodi-felület, amelyet az 1980-as évek végének és az 1990-es éveknek a számítógépes termináljai ihlettek.</description>
+        <description lang="it_IT">Terminal 80 è una skin scura per Kodi, in verde fosforo, ispirata ai terminali informatici della fine degli anni Ottanta e degli anni Novanta.</description>
+        <description lang="zh_CN">Terminal 80 是一款深色荧光绿 Kodi 皮肤，灵感来自 20 世纪 80 年代末和 90 年代的计算机终端。</description>
         <license>CC-NC-SA 3.0</license>
-        <website>https://github.com/jurialmunkey/skin.eminence.2</website>
-        <email />
+        <website>https://github.com/NeonLightning/kodiskin</website>
         <assets>
             <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-            <screenshot>extras/viewthumbs/50.jpg</screenshot>
-            <screenshot>extras/viewthumbs/51.jpg</screenshot>
-            <screenshot>extras/viewthumbs/52.jpg</screenshot>
-            <screenshot>extras/viewthumbs/53.jpg</screenshot>
-            <screenshot>extras/viewthumbs/54.jpg</screenshot>
-            <screenshot>extras/viewthumbs/55.jpg</screenshot>
-            <screenshot>extras/viewthumbs/56.jpg</screenshot>
+            <fanart>extras/backgrounds/terminal80_home.jpg</fanart>
             <screenshot>extras/viewthumbs/57.jpg</screenshot>
-            <screenshot>extras/viewthumbs/58.jpg</screenshot>
-            <screenshot>extras/viewthumbs/59.jpg</screenshot>
+            <screenshot>extras/screenshots/home.jpg</screenshot>
+            <screenshot>extras/screenshots/amber.jpg</screenshot>
+            <screenshot>extras/viewthumbs/500.jpg</screenshot>
+            <screenshot>extras/viewthumbs/553.jpg</screenshot>
+            <screenshot>extras/viewthumbs/535.jpg</screenshot>
+            <screenshot>extras/screenshots/view-picker.jpg</screenshot>
+            <screenshot>extras/screenshots/spinner-picker.jpg</screenshot>
+            <screenshot>extras/screenshots/confirmation.jpg</screenshot>
         </assets>
     </extension>
 </addon>

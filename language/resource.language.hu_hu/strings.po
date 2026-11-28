@@ -965,8 +965,8 @@ msgid "Show additional dialog shadows"
 msgstr "További dialógusárnyékok megjelenítése"
 
 msgctxt "#31225"
-msgid "Use original Eminence v1 style side labels and arrows"
-msgstr "Eredeti Eminence v1 stílusú oldalsó címkék és nyilak használata"
+msgid "Show side labels and arrows"
+msgstr "Oldalsó címkék és nyilak megjelenítése"
 
 msgctxt "#31226"
 msgid "Lock view"

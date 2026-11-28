@@ -176,8 +176,8 @@
     </variable>
 
     <variable name="Label_ExtraInfo">
-        <value condition="!String.IsEmpty(ListItem.MPAA) + !String.IsEmpty(ListItem.Duration) + [Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(535)]">$INFO[ListItem.MPAA,,  •  ]$INFO[ListItem.Duration(mins),, $LOCALIZE[31117]]</value>
-        <value condition="!String.IsEmpty(ListItem.MPAA) + [Control.IsVisible(57) | Control.IsVisible(53) | Control.IsVisible(535)]">$INFO[ListItem.MPAA]</value>
+        <value condition="!String.IsEmpty(ListItem.MPAA) + !String.IsEmpty(ListItem.Duration) + [Control.IsVisible(53) | Control.IsVisible(535)]">$INFO[ListItem.MPAA,,  •  ]$INFO[ListItem.Duration(mins),, $LOCALIZE[31117]]</value>
+        <value condition="!String.IsEmpty(ListItem.MPAA) + [Control.IsVisible(53) | Control.IsVisible(535)]">$INFO[ListItem.MPAA]</value>
         <value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),, $LOCALIZE[31117]]</value>
     </variable>
 
@@ -192,8 +192,15 @@
         <value condition="Container.Content(artists) + !String.IsEmpty(ListItem.Property(Artist_YearsActive)) + !Control.IsVisible(58)">$INFO[ListItem.Property(Artist_YearsActive)]</value>
         <value condition="Container.Content(albums) + [!String.IsEmpty(ListItem.Artist) | !String.IsEmpty(ListItem.Year)]">$INFO[ListItem.Artist]$INFO[ListItem.Year,  •  ,]</value>
         <value condition="Container.Content(seasons)">$INFO[ListItem.Year,,  •  ]$INFO[ListItem.Episode,, $LOCALIZE[20360]]</value>
+        <value condition="!ListItem.IsCollection + [Control.IsVisible(51) | Control.IsVisible(57) | Control.IsVisible(577)] + !String.IsEmpty(ListItem.Duration)">$VAR[Label_ExtraInfo]$VAR[Label_ReleaseDate,  •  ,]</value>
+        <value condition="!ListItem.IsCollection + [Control.IsVisible(51) | Control.IsVisible(57) | Control.IsVisible(577)]">$VAR[Label_ReleaseDate]</value>
         <value condition="!ListItem.IsCollection + Container.Content(movies)">$VAR[Label_ExtraInfo,,  •  ]$INFO[ListItem.Year,,  •  ]$VAR[Label_Rating]</value>
         <value condition="!ListItem.IsCollection + !Container.Content(movies)">$VAR[Label_ExtraInfo,,  •  ]$INFO[ListItem.Premiered,,  •  ]$VAR[Label_Rating]</value>
+    </variable>
+
+    <variable name="Label_ReleaseDate">
+        <value condition="Container.Content(movies)">$INFO[ListItem.Year]</value>
+        <value>$INFO[ListItem.Premiered]</value>
     </variable>
 
     <variable name="Label_Label3">
@@ -341,7 +348,6 @@
 
     <!-- Skin Settings VARS -->
     <variable name="Label_SkinSetting_FallbackWidget">
-        <value condition="!String.IsEmpty(Skin.String(widget.background.fallback))">$LOCALIZE[31283]</value>
         <value condition="!String.IsEmpty(Skin.String(home.fallbackwidget.name))">$INFO[Skin.String(home.fallbackwidget.name)]</value>
         <value>$LOCALIZE[31180]</value>
     </variable>
@@ -360,15 +366,13 @@
     <variable name="Label_SkinSetting_BusyTexture">
         <value condition="Skin.String(BusySpinner,Kitty)">$LOCALIZE[31258]</value>
         <value condition="Skin.String(BusySpinner,Tube)">$LOCALIZE[31257]</value>
-        <value>$LOCALIZE[31256] ($LOCALIZE[31180])</value>
+        <value condition="Skin.String(BusySpinner,Dots)">$LOCALIZE[31256]</value>
+        <value>$LOCALIZE[31288] ($LOCALIZE[31180])</value>
     </variable>
-    <variable name="Label_SkinSetting_GlobalOverlay">
-        <value condition="!String.IsEmpty(Skin.String(global.background))">$INFO[Skin.String(global.background)]</value>
-        <value>$LOCALIZE[31189]</value>
-    </variable>
-    <variable name="Label_SkinSetting_FallbackFanart">
-        <value condition="!String.IsEmpty(Skin.String(background.fallback))">$INFO[Skin.String(background.fallback)]</value>
-        <value>$LOCALIZE[31189]</value>
+    <variable name="Label_SkinSetting_TerminalBackground">
+        <value condition="Skin.String(TerminalBackground,Diagnostics)">$LOCALIZE[31286]</value>
+        <value condition="Skin.String(TerminalBackground,Directory)">$LOCALIZE[31287]</value>
+        <value>$LOCALIZE[31285]</value>
     </variable>
     <variable name="Label_SkinSetting_StartupVideo">
         <value condition="!String.IsEmpty(Skin.String(StartupPlaylist))">$INFO[Skin.String(StartupPlaylist)]</value>
@@ -378,6 +382,39 @@
     <variable name="Label_VideoHWDecoder">
         <value condition="Player.Process(videohwdecoder)">HW</value>
         <value>SW</value>
+    </variable>
+
+    <!-- Umbrella stores a show's network in Kodi's Studio field. -->
+    <expression name="Exp_UmbrellaShow">[[String.StartsWith(Container.FolderPath,plugin://plugin.video.umbrella/) | String.StartsWith(ListItem.FilenameAndPath,plugin://plugin.video.umbrella/)] + [Container.Content(tvshows) | String.IsEqual(ListItem.DBType,tvshow)]]</expression>
+    <expression name="Exp_MatchingTMDbItem">[!String.IsEmpty(ListItem.FilenameAndPath) + String.IsEqual(ListItem.FilenameAndPath,Window(Home).Property(TMDbHelper.ListItem.FilenameAndPath)) + String.IsEqual(ListItem.Label,Window(Home).Property(TMDbHelper.ListItem.Base_Label))]</expression>
+    <expression name="Exp_HasTMDbNetworkName">[$EXP[Exp_MatchingTMDbItem] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network))]</expression>
+    <expression name="Exp_HasTMDbStudioName">[$EXP[Exp_MatchingTMDbItem] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))]</expression>
+    <expression name="Exp_HasNativeStudioName">[!$EXP[Exp_UmbrellaShow] + !String.IsEmpty(ListItem.Studio) + !String.IsEqual(ListItem.Studio,ListItem.Property(Network))]</expression>
+    <expression name="Exp_HasMediaNetworkName">[!String.IsEmpty(ListItem.Property(Network)) | $EXP[Exp_HasTMDbNetworkName] | [$EXP[Exp_UmbrellaShow] + !String.IsEmpty(ListItem.Studio)]]</expression>
+    <expression name="Exp_HasMediaStudioName">[!String.IsEmpty(ListItem.Property(Studio)) | $EXP[Exp_HasTMDbStudioName] | $EXP[Exp_HasNativeStudioName]]</expression>
+    <expression name="Exp_HasStudioNetwork">[$EXP[Exp_HasMediaNetworkName] | $EXP[Exp_HasMediaStudioName] | $EXP[Exp_HasMediaNetworkLogo] | $EXP[Exp_HasMediaStudioLogo]]</expression>
+    <expression name="Exp_HasCertification">[!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(Certification))]</expression>
+
+    <variable name="Label_MediaNetwork">
+        <value condition="!String.IsEmpty(ListItem.Property(Network))">$INFO[ListItem.Property(Network)]</value>
+        <value condition="$EXP[Exp_HasTMDbNetworkName]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network)]</value>
+        <value condition="$EXP[Exp_UmbrellaShow]">$INFO[ListItem.Studio]</value>
+    </variable>
+
+    <variable name="Label_MediaStudio">
+        <value condition="!String.IsEmpty(ListItem.Property(Studio))">$INFO[ListItem.Property(Studio)]</value>
+        <value condition="$EXP[Exp_HasTMDbStudioName]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)]</value>
+        <value condition="$EXP[Exp_HasNativeStudioName]">$INFO[ListItem.Studio]</value>
+    </variable>
+
+    <variable name="Label_Certification">
+        <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
+        <value>$INFO[ListItem.Property(Certification)]</value>
+    </variable>
+
+    <variable name="Label_MediaRating">
+        <value condition="$EXP[Exp_HasCertification]">$VAR[Label_Certification]$INFO[ListItem.Rating,  •  ,/10]</value>
+        <value>$INFO[ListItem.Rating,,/10]</value>
     </variable>
 
     <variable name="Label_MPAA">

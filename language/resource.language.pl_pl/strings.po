@@ -940,8 +940,8 @@ msgid "Show additional dialog shadows"
 msgstr "Pokazuj dodatkowe cienie okien dialogowych"
 
 msgctxt "#31225"
-msgid "Use original Eminence v1 style side labels and arrows"
-msgstr "Używaj stylu menu bocznego i strzałek skóry Emincence w wersji 1"
+msgid "Show side labels and arrows"
+msgstr "Pokaż boczne etykiety i strzałki"
 
 msgctxt "#31226"
 msgid "Lock view"

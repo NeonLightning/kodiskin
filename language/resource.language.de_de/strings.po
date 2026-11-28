@@ -923,8 +923,8 @@ msgid "Show additional dialog shadows"
 msgstr "Zeige zusätzliche Dialogschatten"
 
 msgctxt "#31225"
-msgid "Use original Eminence v1 style side labels and arrows"
-msgstr "Benutze original Eminence v1 Stil Beschriftungen und Pfeile"
+msgid "Show side labels and arrows"
+msgstr "Seitliche Beschriftungen und Pfeile anzeigen"
 
 msgctxt "#31226"
 msgid "Lock view"

@@ -390,7 +390,7 @@
                 <left>0</left>
                 <right>0</right>
                 <bottom>pad</bottom>
-                <texture border="8">extras/focus_terminal.png</texture>
+                <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
             </control>
             <control type="label">
                 <left>bigpad</left>
@@ -494,7 +494,7 @@
                 <left>0</left>
                 <right>pad</right>
                 <height>100%</height>
-                <texture border="8">extras/focus_terminal.png</texture>
+                <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
             </control>
             <control type="label">
                 <left>bigpad</left>
@@ -573,25 +573,31 @@
         <itemgap>bigpad</itemgap>
 
     </include>
-    <include name="Dialog_Bottom_Yes">
-        <control type="button" id="11">
-            <align>center</align>
+    <include name="Dialog_ChoiceStyle">
+        <definition>
             <width>300</width>
-            <label>186</label>
-            <include>Defs_OptionButton2</include>
-            <onleft>10</onleft>
-            <onright>noop</onright>
-        </control>
+            <height>72</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>Font-Button</font>
+            <textcolor>ListLabel</textcolor>
+            <focusedcolor>Selected</focusedcolor>
+            <texturenofocus />
+            <texturefocus colordiffuse="$PARAM[fill]">common/white.png</texturefocus>
+        </definition>
     </include>
-    <include name="Dialog_Bottom_No">
-        <control type="button" id="10">
-            <align>center</align>
-            <width>300</width>
-            <label>222</label>
-            <include>Defs_OptionButton2</include>
-            <onleft>noop</onleft>
-            <onright>11</onright>
-        </control>
+    <include name="Dialog_SpinnerOption">
+        <definition>
+            <control type="radiobutton" id="$PARAM[id]">
+                <include>Defs_OptionButton</include>
+                <width>100%</width>
+                <radioposx>342</radioposx>
+                <label>$PARAM[label]</label>
+                <selected>$PARAM[selected]</selected>
+                <onclick>Skin.SetString(BusySpinner,$PARAM[name])</onclick>
+                <onclick>Close</onclick>
+            </control>
+        </definition>
     </include>
     <!-- Progress -->
     <include name="Dialog_Progress">
@@ -607,8 +613,21 @@
             </control>
             <control type="grouplist">
                 <include>Dialog_Bottom_Grouplist</include>
-                <include>Dialog_Bottom_Yes</include>
-                <include>Dialog_Bottom_No</include>
+                <control type="button" id="11">
+                    <include content="Dialog_ChoiceStyle">
+                        <param name="fill" value="ConfirmPositiveFill" />
+                    </include>
+                </control>
+                <control type="button" id="10">
+                    <include content="Dialog_ChoiceStyle">
+                        <param name="fill" value="ConfirmNegativeFill" />
+                    </include>
+                </control>
+                <control type="button" id="12">
+                    <include content="Dialog_ChoiceStyle">
+                        <param name="fill" value="ConfirmOtherFill" />
+                    </include>
+                </control>
             </control>
         </control>
     </include>
@@ -666,7 +685,7 @@
                     <control type="image">
                         <width>100%</width>
                         <height>100%</height>
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                     <control type="label">
                         <left>30</left>
@@ -731,7 +750,7 @@
                     <control type="image">
                         <width>100%</width>
                         <height>100%</height>
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                     <control type="image">
                         <left>pad</left>
@@ -829,7 +848,7 @@
                     <control type="image">
                         <width>100%</width>
                         <height>72</height>
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                     <control type="label">
                         <left>bigpad</left>
@@ -962,7 +981,7 @@
                         <right>5</right>
                         <bottom>pad</bottom>
                         <top>0</top>
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                     <control type="group">
                         <control type="label">
@@ -982,7 +1001,7 @@
                     <control type="image">
                         <width>100%</width>
                         <height>100%</height>
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                     <control type="group">
                         <left>$PARAM[pad]</left>
@@ -1035,7 +1054,7 @@
                     <control type="image">
                         <width>100%</width>
                         <height>100%</height>
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                     <control type="image">
                         <centerleft>50%</centerleft>
@@ -1117,7 +1136,7 @@
                         <control type="image">
                             <width>100%</width>
                             <height>100%</height>
-                            <texture border="8">extras/focus_terminal.png</texture>
+                            <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             <animation effect="fade" start="100" end="25" condition="!Control.HasFocus($PARAM[id])">Conditional</animation>
                         </control>
                         <control type="label">

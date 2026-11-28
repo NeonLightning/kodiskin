@@ -75,7 +75,7 @@
                         <top>bigpad</top>
                         <bottom>bigpad</bottom>
                         <control type="image">
-                            <texture border="8">extras/focus_terminal.png</texture>
+                            <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             <animation effect="fade" end="70" condition="true">Conditional</animation>
                             <include>Object_Background_Shadows</include>
                         </control>

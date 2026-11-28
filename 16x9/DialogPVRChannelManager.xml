@@ -70,7 +70,7 @@
                         <control type="image">
                             <width>100%</width>
                             <height>100%</height>
-                            <texture border="8">extras/focus_terminal.png</texture>
+                            <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             <animation effect="fade" start="100" end="50" condition="!Control.HasFocus(20)">Conditional</animation>
                         </control>
                         <control type="group">

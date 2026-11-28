@@ -939,8 +939,8 @@ msgid "Show additional dialog shadows"
 msgstr "Mostra ombre per dialoghi aggiuntivi"
 
 msgctxt "#31225"
-msgid "Use original Eminence v1 style side labels and arrows"
-msgstr "Utilizzare lo stile originale di Eminence v1 per le etichette laterali e le frecce"
+msgid "Show side labels and arrows"
+msgstr "Mostra etichette e frecce laterali"
 
 msgctxt "#31226"
 msgid "Lock view"

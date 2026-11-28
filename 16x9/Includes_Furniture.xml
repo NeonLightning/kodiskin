@@ -622,104 +622,26 @@
     </include>
 
     <!-- BACKGROUND -->
+    <include name="Furniture_TerminalBackground">
+        <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+            <aspectratio>scale</aspectratio>
+            <fadetime>250</fadetime>
+            <texture background="true" colordiffuse="TerminalBackgroundInk">$VAR[Image_Background]</texture>
+            <animation effect="fade" end="40" condition="!Window.IsVisible(home)">Conditional</animation>
+        </control>
+    </include>
+
     <include name="Furniture_Background">
         <include>Object_FakeImage</include>
-        <!-- Background Stuff -->
-        <control type="videowindow">
-            <visible>Skin.HasSetting(background.showvideo)</visible>
-            <visible>Player.HasVideo</visible>
-            <visible>!Window.IsVisible(weather)</visible>
-            <width>100%</width>
-            <height>100%</height>
-        </control>
-        <control type="multiimage">
-            <width>100%</width>
-            <height>100%</height>
-            <fadetime>600</fadetime>
-            <randomize>true</randomize>
-            <timeperimage>5000</timeperimage>
-            <imagepath background="true">$VAR[Image_Background]</imagepath>
-            <aspectratio>scale</aspectratio>
-            <animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(background.animate)">Conditional</animation>
-            <animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(background.animate)">Conditional</animation>
-            <visible>![Player.HasVideo | Player.HasAudio] | [Player.HasAudio + !Skin.HasSetting(background.showvisualisation)] | [Player.HasVideo + !Skin.HasSetting(background.showvideo)] | Window.IsVisible(weather)</visible>
-        </control>
-
-        
-
-        <control type="group">
-            <visible>Skin.HasSetting(background.showvisualisation)</visible>
-            <visible>Player.HasAudio</visible>
-            <visible>!Window.IsVisible(weather)</visible>
-            <width>100%</width>
-            <height>100%</height>
-            <control type="visualisation">
-                <visible>Skin.HasSetting(OSDVisualisation.ShowFanart) | [!Skin.HasSetting(musicvis.fanartfallback) + !Skin.HasSetting(ArtistSlideShow.Enabled)] | [Skin.HasSetting(musicvis.fanartfallback) + !Skin.HasSetting(ArtistSlideShow.Enabled) + String.IsEmpty(Player.Art(fanart))]</visible>
-                <description>visualisation</description>
-
-            </control>
-
-            <control type="multiimage">
-                <aspectratio>scale</aspectratio>
-                <timeperimage>10000</timeperimage>
-                <randomize>true</randomize>
-                <fadetime>600</fadetime>
-                <loop>yes</loop>
-                <visible>Skin.HasSetting(musicvis.fanartfallback) | Skin.HasSetting(ArtistSlideShow.Enabled)</visible>
-                <imagepath background="true">$VAR[Image_MusicVisualisation]</imagepath>
-                <animation effect="fade" start="100" end="65" time="0" condition="Skin.HasSetting(OSDVisualisation.ShowFanart)">Conditional</animation>
-                <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
-                <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
-            </control>
-        </control>
-        <control type="image" description="Fanart Fade">
-            <width>100%</width>
-            <height>100%</height>
-            <texture colordiffuse="FanartFade">common/white.png</texture>
-            <visible>!Window.IsVisible(home)</visible>
-            <visible>!Window.IsVisible(weather)</visible>
-            <visible>!Window.IsVisible(loginscreen)</visible>
-            <animation effect="fade" start="100" end="10" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),10)">Conditional</animation>
-            <animation effect="fade" start="100" end="20" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),20)">Conditional</animation>
-            <animation effect="fade" start="100" end="30" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),30)">Conditional</animation>
-            <animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),40)">Conditional</animation>
-            <animation effect="fade" start="100" end="50" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),50)">Conditional</animation>
-            <animation effect="fade" start="100" end="60" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),60)">Conditional</animation>
-            <animation effect="fade" start="100" end="70" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),70)">Conditional</animation>
-            <animation effect="fade" start="100" end="80" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),80)">Conditional</animation>
-            <animation effect="fade" start="100" end="90" condition="[!Skin.HasSetting(background.hidefanart) + [String.IsEqual(Skin.String(fanart.opacity),90) | String.IsEmpty(Skin.String(fanart.opacity))]] | Skin.HasSetting(background.hidefanart)">Conditional</animation>
-            <animation effect="fade" start="100" end="100" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),100)">Conditional</animation>
-        </control>
-
+        <include>Furniture_TerminalBackground</include>
         <control type="image" description="Transition Fade">
             <width>100%</width>
             <height>100%</height>
             <texture background="true" colordiffuse="Background">common/white.png</texture>
             <animation effect="fade" start="0" end="100" time="400">WindowClose</animation>
             <animation effect="fade" end="0" start="100" time="400">WindowOpen</animation>
-        </control>
-        <control type="image" description="Background Overlay">
-            <width>100%</width>
-            <height>100%</height>
-            <fadetime>1000</fadetime>
-            <animation effect="fade" end="30" condition="true">Conditional</animation>
-            <texture colordiffuse="$VAR[HighlightColor]">$INFO[Skin.String(global.background)]</texture>
-            <visible>!String.IsEmpty(Skin.String(global.background))</visible>
-            <animation effect="fade" end="100" start="0" time="250" condition="Window.Previous(home) | Window.Previous(visualisation) | Window.Previous(fullscreenvideo)">WindowOpen</animation>
-            <animation effect="fade" end="0" start="100" time="250" condition="Window.Next(home)">WindowClose</animation>
-            <visible>!Window.IsVisible(home) + !Window.IsVisible(visualisation)</visible>
-            <visible>Skin.HasSetting(EnableColorFilter)</visible>
-        </control>
-        <control type="image" description="Background Overlay">
-            <width>100%</width>
-            <height>100%</height>
-            <fadetime>1000</fadetime>
-            <texture colordiffuse="4f777777">$INFO[Skin.String(global.background)]</texture>
-            <visible>!String.IsEmpty(Skin.String(global.background))</visible>
-            <animation effect="fade" end="100" start="0" time="250" condition="Window.Previous(home) | Window.Previous(visualisation) | Window.Previous(fullscreenvideo)">WindowOpen</animation>
-            <animation effect="fade" end="0" start="100" time="250" condition="Window.Next(home)">WindowClose</animation>
-            <visible>!Window.IsVisible(home) + !Window.IsVisible(visualisation)</visible>
-            <visible>!Skin.HasSetting(EnableColorFilter)</visible>
         </control>
     </include>
 
@@ -861,20 +783,6 @@
             <include>Defs_HeaderDimensions</include>
             <visible>!Skin.HasSetting(global.hideobjectshadows) + !String.IsEqual(Skin.CurrentColourTheme,Light)</visible>
             <texture>common/header-shadow-24.png</texture>
-        </control>
-        <control type="image">
-            <include>Defs_HeaderDimensions</include>
-            <texture colordiffuse="Background">common/header.png</texture>
-            <visible>!Window.IsVisible(home) + !Window.IsVisible(weather) + !VideoPlayer.IsFullscreen + !Window.IsVisible(visualisation)</visible>
-            <animation effect="fade" start="100" end="80" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),10)">Conditional</animation>
-            <animation effect="fade" start="100" end="70" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),20)">Conditional</animation>
-            <animation effect="fade" start="100" end="60" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),30)">Conditional</animation>
-            <animation effect="fade" start="100" end="50" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),40)">Conditional</animation>
-            <animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),50)">Conditional</animation>
-            <animation effect="fade" start="100" end="30" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),60)">Conditional</animation>
-            <animation effect="fade" start="100" end="20" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),70)">Conditional</animation>
-            <animation effect="fade" start="100" end="10" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),80)">Conditional</animation>
-            <visible>!Skin.HasSetting(background.hidefanart) + Integer.IsLess(Skin.String(fanart.opacity),90) + !String.IsEmpty(Skin.String(fanart.opacity))</visible>
         </control>
         <control type="image">
             <include>Defs_HeaderDimensions</include>

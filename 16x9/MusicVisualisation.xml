@@ -2,38 +2,10 @@
 <window>
 	<!-- visualisation -->
 	
-	<onload condition="System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow)</onload>
-	<controls>
-
-		<control type="visualisation" id="2">
-            <visible>Skin.HasSetting(OSDVisualisation.ShowFanart) | [!Skin.HasSetting(musicvis.fanartfallback) + !Skin.HasSetting(ArtistSlideShow.Enabled)] | [Skin.HasSetting(musicvis.fanartfallback) + !Skin.HasSetting(ArtistSlideShow.Enabled) + String.IsEmpty(Player.Art(fanart))]</visible>
+    <controls>
+        <include>Furniture_TerminalBackground</include>
+        <control type="visualisation" id="2">
             <description>visualisation</description>
-        </control>
-
-        <control type="multiimage">
-            <aspectratio>scale</aspectratio>
-            <timeperimage>10000</timeperimage>
-            <randomize>true</randomize>
-            <fadetime>600</fadetime>
-            <loop>yes</loop>
-            <visible>Skin.HasSetting(musicvis.fanartfallback) | Skin.HasSetting(ArtistSlideShow.Enabled)</visible>
-            <imagepath background="true">$VAR[Image_MusicVisualisation]</imagepath>
-            <animation effect="fade" start="100" end="65" time="0" condition="Skin.HasSetting(OSDVisualisation.ShowFanart)">Conditional</animation>
-            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
-            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
-        </control>
-
-        <control type="multiimage">
-            <randomize>true</randomize>
-            <timeperimage>4000</timeperimage>
-            <fadetime>4000</fadetime>
-            <pauseatend>0</pauseatend>
-            <loop>true</loop>
-            <imagepath background="true">special://skin/extras/backgrounds/music_colors</imagepath>
-            <colordiffuse>9fffffff</colordiffuse>
-            <include>Animation_FadeIn</include>
-            <include>Animation_FadeOut</include>
-            <visible>Skin.HasSetting(ShowOSDDiffuseColors)</visible>
         </control>
 
         <control type="group" id="3334">

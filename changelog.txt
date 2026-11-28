@@ -1,9 +1,8 @@
 Terminal 80 1.0.0
-- First independent Terminal 80 package identity, derived from Eminence 2.0.
+- First Terminal 80 package.
 - Added phosphor-green-on-black theme palette and monospace UI typography.
 - Added static terminal-inspired fallback background and new skin icon.
 - Promoted Add-ons to a dedicated default main-menu entry.
-- Retained Eminence navigation, widgets, dialogs, settings, and media views as the functional base.
 
 Terminal 80 1.0.1
 - Added selected-item network/studio and video/audio metadata panel for items exposing Kodi list-item properties (including Umbrella results).
@@ -16,3 +15,35 @@ Terminal 80 1.0.2
 - Added network/studio badge artwork and selected-item certification/genre metadata to library info panels.
 - Removed numeric weather temperature from the header.
 - Combined time and AM/PM into one consistently sized, aligned clock label.
+
+Terminal 80 1.0.4
+- Set Media Info 2 as the default for supported video listings.
+- Reduced font sizes in both font sets.
+- Displayed studio and network names as text and gave content ratings and scores a full-width row.
+- Colored Yes green and No red, with a solid fill for the focused choice.
+
+Terminal 80 1.0.5
+- Labeled Umbrella's TV network correctly and displayed the production studio from TMDb Helper when it matches the selected show.
+
+Terminal 80 1.0.6
+- Changed focused text to amber and restored focus outlines.
+- Added a colored fill to the focused confirmation button and cleared the backgrounds of unfocused buttons.
+
+Terminal 80 1.0.7
+- Updated add-on descriptions, the project link, and the side-label setting.
+- Replaced inherited artwork and view previews with Terminal 80 artwork and screenshots captured in Kodi.
+- Removed unused fonts, images, and playlists.
+
+Terminal 80 1.0.8
+- Added Boot log, Diagnostics, and Directory as the interface backgrounds.
+- Added the terminal slash spinner as the default busy indicator.
+- Added Amber, Ice Blue, and Violet color schemes.
+- Switched the default interface font to PxPlus IBM VGA 9x16.
+
+Terminal 80 1.0.9
+- Displayed available network and studio logos in video information panels.
+- Added a busy spinner picker with live previews.
+- Extended the Media Info 2 default to video and music video listings.
+
+Terminal 80 1.0.10
+- Added a muted background behind studio and network logos in each color scheme.

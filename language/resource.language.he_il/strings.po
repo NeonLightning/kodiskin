@@ -938,8 +938,8 @@ msgid "Show additional dialog shadows"
 msgstr "הצג צללים על תיבות דו שיח"
 
 msgctxt "#31225"
-msgid "Use original Eminence v1 style side labels and arrows"
-msgstr "תשתמש בסגנון Eminence v1 לתוויות וחצים"
+msgid "Show side labels and arrows"
+msgstr "הצגת תוויות וחצים בצדדים"
 
 msgctxt "#31226"
 msgid "Lock view"

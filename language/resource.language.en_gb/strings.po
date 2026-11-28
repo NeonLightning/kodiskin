@@ -939,7 +939,7 @@ msgid "Show additional dialog shadows"
 msgstr ""
 
 msgctxt "#31225"
-msgid "Use original Eminence v1 style side labels and arrows"
+msgid "Show side labels and arrows"
 msgstr ""
 
 msgctxt "#31226"
@@ -1219,4 +1219,25 @@ msgstr ""
 #: /16x9/Includes_Label.xml
 msgctxt "#31283"
 msgid "Fallback image"
+msgstr ""
+
+
+msgctxt "#31284"
+msgid "Terminal background"
+msgstr ""
+
+msgctxt "#31285"
+msgid "Boot log"
+msgstr ""
+
+msgctxt "#31286"
+msgid "Diagnostics"
+msgstr ""
+
+msgctxt "#31287"
+msgid "Directory"
+msgstr ""
+
+msgctxt "#31288"
+msgid "Terminal"
 msgstr ""

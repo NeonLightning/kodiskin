@@ -356,7 +356,7 @@
                             <bottom>9</bottom>
                             <top>9</top>
                             <control type="image">
-                                <width>100%</width><height>100%</height><texture>extras/focus_terminal.png</texture>
+                                <width>100%</width><height>100%</height><texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             </control>
                             <control type="image">
                                 <left>pad</left>
@@ -425,7 +425,7 @@
                             <bottom>16</bottom>
                             <top>16</top>
                             <control type="image">
-                                <width>100%</width><height>100%</height><texture>extras/focus_terminal.png</texture>
+                                <width>100%</width><height>100%</height><texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             </control>
                             <control type="image">
                                 <left>pad</left>
@@ -533,7 +533,7 @@
                             <bottom>5</bottom>
                             <top>5</top>
                             <control type="image">
-                                <width>100%</width><height>100%</height><texture>extras/focus_terminal.png</texture>
+                                <width>100%</width><height>100%</height><texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             </control>
                             <control type="group">
                                 <left>pad</left>

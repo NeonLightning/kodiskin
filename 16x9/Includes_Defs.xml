@@ -120,7 +120,7 @@
                 <textoffsetx>148</textoffsetx>
                 <width>1000</width>
                 <alttexturenofocus colordiffuse="$VAR[HighlightColor]">common/white.png</alttexturenofocus>
-                <alttexturefocus>extras/focus_terminal.png</alttexturefocus>
+                <alttexturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</alttexturefocus>
                 <usealttexture>Control.HasFocus(814$PARAM[id]) | Control.HasFocus(815$PARAM[id])</usealttexture>
                 <label>$INFO[Skin.String(Store_Widget$PARAM[id]_Title)]</label>
                 <altlabel>[COLOR=Selected]$INFO[Skin.String(Store_Widget$PARAM[id]_Title)][/COLOR]</altlabel>
@@ -285,7 +285,8 @@
     <variable name="Defs_SpinnerTexture">
         <value condition="Skin.String(BusySpinner,Tube)">special://skin/extras/busy_spinners/Tube</value>
         <value condition="Skin.String(BusySpinner,Kitty)">special://skin/extras/busy_spinners/Kitty</value>
-        <value>special://skin/extras/busy_spinners/Dots</value>
+        <value condition="Skin.String(BusySpinner,Dots)">special://skin/extras/busy_spinners/Dots</value>
+        <value>special://skin/extras/busy_spinners/Terminal</value>
     </variable>
     <include name="Defs_OptionButton_Basic">
         <width>364</width>
@@ -301,34 +302,34 @@
     </include>
     <include name="Defs_OptionButton">
         <include>Defs_OptionButton_Basic</include>
-        <texturefocus>extras/focus_terminal.png</texturefocus>
-        <alttexturefocus>extras/focus_terminal.png</alttexturefocus>
+        <texturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texturefocus>
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</alttexturefocus>
     </include>
     <include name="Defs_OptionButton2">
         <include>Defs_OptionButton_Basic</include>
-        <texturenofocus colordiffuse="PosterBorder">common/white.png</texturenofocus>
-        <texturefocus>extras/focus_terminal.png</texturefocus>
-        <alttexturenofocus colordiffuse="PosterBorder">common/white.png</alttexturenofocus>
-        <alttexturefocus>extras/focus_terminal.png</alttexturefocus>
+        <texturenofocus />
+        <texturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texturefocus>
+        <alttexturenofocus />
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</alttexturefocus>
     </include>
     <include name="Defs_OptionButton2_Horz">
         <width>460</width>
         <radioposx>390</radioposx>
         <include>Defs_OptionButton_Basic</include>
-        <texturenofocus colordiffuse="PosterBorder">common/white.png</texturenofocus>
-        <texturefocus>extras/focus_terminal.png</texturefocus>
-        <alttexturenofocus colordiffuse="PosterBorder">common/white.png</alttexturenofocus>
-        <alttexturefocus>extras/focus_terminal.png</alttexturefocus>
+        <texturenofocus />
+        <texturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texturefocus>
+        <alttexturenofocus />
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</alttexturefocus>
     </include>
     <include name="Defs_OptionButton3">
         <width>auto</width>
         <height>64</height>
         <font>Font-ListInfo-Small-Bold</font>
         <include>Defs_OptionButton_Basic</include>
-        <texturenofocus colordiffuse="PosterBorder">common/white.png</texturenofocus>
-        <texturefocus>extras/focus_terminal.png</texturefocus>
-        <alttexturenofocus colordiffuse="PosterBorder">common/white.png</alttexturenofocus>
-        <alttexturefocus>extras/focus_terminal.png</alttexturefocus>
+        <texturenofocus />
+        <texturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texturefocus>
+        <alttexturenofocus />
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</alttexturefocus>
     </include>
     <include name="Defs_OSDButton">
         <width>230</width>
@@ -356,10 +357,10 @@
         <aligny>center</aligny>
         <textoffsetx>bigpad</textoffsetx>
         <radioposx>295</radioposx>
-        <texturenofocus colordiffuse="PosterBorder">common/white.png</texturenofocus>
-        <texturefocus>extras/focus_terminal.png</texturefocus>
-        <alttexturenofocus colordiffuse="PosterBorder">common/white.png</alttexturenofocus>
-        <alttexturefocus>extras/focus_terminal.png</alttexturefocus>
+        <texturenofocus />
+        <texturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texturefocus>
+        <alttexturenofocus />
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</alttexturefocus>
     </include>
     <variable name="Defs_Hub_Widget">
         <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(Widget.1101))">$INFO[Skin.String(Widget.1101)]</value>
@@ -474,7 +475,6 @@
     <variable name="Defs_HomeWidget_Content">
         <value condition="String.IsEmpty(Container(9000).ListItem.Property(widget)) + !String.IsEmpty(Container(9000).ListItem.Property(background))">-</value>
         <value condition="String.IsEqual(Container(9000).ListItem.Property(widget),Weather) + System.HasAddon(resource.images.weatherfanart.multi)">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,]/</value>
-        <value condition="!String.IsEmpty(Skin.String(widget.background.fallback))">-</value>
         <value condition="[String.IsEqual(Skin.String(home.fallbackwidget),Weather) | String.IsEqual(Skin.String(home.fallbackwidget.node),Weather)] + System.HasAddon(resource.images.weatherfanart.multi)">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,]/</value>
         <value condition="!String.IsEmpty(Skin.String(home.fallbackwidget))">$INFO[Skin.String(home.fallbackwidget)]</value>
         <value>special://skin/extras/playlists/RandomMovies.xsp</value>
@@ -552,7 +552,7 @@
                     <right>0</right>
                     <include>Object_Background</include>
                     <control type="image">
-                        <texture border="8">extras/focus_terminal.png</texture>
+                        <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     </control>
                 </control>
                 <control type="image">

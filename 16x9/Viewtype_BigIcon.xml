@@ -75,7 +75,7 @@
                     <right>-10</right>
                     <top>-10</top>
                     <bottom>-10</bottom>
-                    <width>100%</width><height>100%</height><texture>extras/focus_terminal.png</texture>
+                    <width>100%</width><height>100%</height><texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                     <visible>Control.HasFocus(52)</visible>
                 </control>
                 <control type="image">
@@ -219,7 +219,7 @@
                             <right>-10</right>
                             <top>-10</top>
                             <bottom>-10</bottom>
-                            <width>100%</width><height>100%</height><texture>extras/focus_terminal.png</texture>
+                            <width>100%</width><height>100%</height><texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                             <visible>Control.HasFocus(525)</visible>
                         </control>
                         <control type="image">
@@ -333,7 +333,7 @@
                                 <width>100%</width>
                                 <height>100%</height>
                                 <aspectratio>scale</aspectratio>
-                                <texture background="true" fallback="special://skin/extras/backgrounds/home.jpg">$VAR[Image_Thumb]</texture>
+                                <texture background="true" fallback="special://skin/extras/backgrounds/terminal80_home.jpg">$VAR[Image_Thumb]</texture>
                             </control>
                         </itemlayout>
                         <focusedlayout width="1280" height="720">
@@ -341,7 +341,7 @@
                                 <width>100%</width>
                                 <height>100%</height>
                                 <aspectratio>scale</aspectratio>
-                                <texture background="true" fallback="special://skin/extras/backgrounds/home.jpg">$VAR[Image_Thumb]</texture>
+                                <texture background="true" fallback="special://skin/extras/backgrounds/terminal80_home.jpg">$VAR[Image_Thumb]</texture>
                             </control>
                         </focusedlayout>
                     </control>

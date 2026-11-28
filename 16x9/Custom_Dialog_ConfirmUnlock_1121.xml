@@ -33,10 +33,10 @@
             <control type="grouplist">
                 <include>Dialog_Bottom_Grouplist</include>
                 <control type="button" id="9000">
-                    <align>center</align>
-                    <width>300</width>
                     <label>186</label>
-                    <include>Defs_OptionButton2</include>
+                    <include content="Dialog_ChoiceStyle">
+                        <param name="fill" value="ConfirmPositiveFill" />
+                    </include>
                     <onleft>9001</onleft>
                     <onright>9001</onright>
                     <onclick>Close</onclick>
@@ -68,10 +68,10 @@
                     <onclick>ActivateWindow(1110)</onclick>
                 </control>
                 <control type="button" id="9001">
-                    <align>center</align>
-                    <width>300</width>
                     <label>222</label>
-                    <include>Defs_OptionButton2</include>
+                    <include content="Dialog_ChoiceStyle">
+                        <param name="fill" value="ConfirmNegativeFill" />
+                    </include>
                     <onleft>9000</onleft>
                     <onright>9000</onright>
                     <onclick>Close</onclick>

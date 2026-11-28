@@ -944,18 +944,6 @@
     </include>
     <include name="Object_Background">
         <control type="image">
-            <texture colordiffuse="Background">common/white.png</texture>
-            <animation effect="fade" start="100" end="80" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),10)">Conditional</animation>
-            <animation effect="fade" start="100" end="70" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),20)">Conditional</animation>
-            <animation effect="fade" start="100" end="60" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),30)">Conditional</animation>
-            <animation effect="fade" start="100" end="50" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),40)">Conditional</animation>
-            <animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),50)">Conditional</animation>
-            <animation effect="fade" start="100" end="30" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),60)">Conditional</animation>
-            <animation effect="fade" start="100" end="20" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),70)">Conditional</animation>
-            <animation effect="fade" start="100" end="10" condition="!Skin.HasSetting(background.hidefanart) + String.IsEqual(Skin.String(fanart.opacity),80)">Conditional</animation>
-            <visible>!Skin.HasSetting(background.hidefanart) + Integer.IsLess(Skin.String(fanart.opacity),90) + !String.IsEmpty(Skin.String(fanart.opacity))</visible>
-        </control>
-        <control type="image">
             <include condition="!Skin.HasSetting(global.hideobjectshadows) + !String.IsEqual(Skin.CurrentColourTheme,Light)">Object_Background_Shadows</include>
             <texture colordiffuse="ObjectBackground">common/white.png</texture>
         </control>
@@ -1029,27 +1017,22 @@
                         <right>0</right>
                         <bottom>0</bottom>
                         <height>126</height>
-                        <visible>!String.IsEmpty(ListItem.Property(Network)) | !String.IsEmpty(ListItem.VideoResolution) | !String.IsEmpty(ListItem.VideoCodec) | !String.IsEmpty(ListItem.AudioCodec)</visible>
+                        <visible>$EXP[Exp_HasStudioNetwork] | !String.IsEmpty(ListItem.VideoResolution) | !String.IsEmpty(ListItem.VideoCodec) | !String.IsEmpty(ListItem.HDRType) | !String.IsEmpty(ListItem.AudioCodec) | !String.IsEmpty(ListItem.AudioChannels)</visible>
                         <control type="image">
                             <width>100%</width>
                             <height>100%</height>
-                            <texture colordiffuse="e605160c">common/white.png</texture>
+                            <texture colordiffuse="DialogBG">common/white.png</texture>
                         </control>
                         <control type="image">
                             <width>100%</width>
                             <height>100%</height>
-                            <texture border="5">extras/focus_terminal.png</texture>
+                            <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                         </control>
-                        <control type="label">
-                            <left>18</left>
-                            <right>18</right>
-                            <top>12</top>
-                            <height>34</height>
-                            <font>Font-ListInfo-Small-Bold</font>
-                            <textcolor>Highlight2</textcolor>
-                            <label>$INFO[ListItem.Property(Network)]$INFO[ListItem.Studio,  /  ]</label>
-                            <visible>!String.IsEmpty(ListItem.Property(Network)) | !String.IsEmpty(ListItem.Studio)</visible>
-                        </control>
+                        <include content="Object_StudioNetwork">
+                            <param name="inset" value="18" />
+                            <param name="top" value="12" />
+                            <param name="height" value="34" />
+                        </include>
                         <control type="label">
                             <left>18</left>
                             <right>18</right>
@@ -1079,6 +1062,71 @@
     </include>
 
     <!-- Thumb Info -->
+    <include name="Object_StudioNetwork">
+        <param name="inset" default="pad" />
+        <param name="top" default="0" />
+        <param name="height" default="34" />
+        <definition>
+            <control type="grouplist">
+                <left>$PARAM[inset]</left>
+                <right>$PARAM[inset]</right>
+                <top>$PARAM[top]</top>
+                <height>$PARAM[height]</height>
+                <orientation>horizontal</orientation>
+                <itemgap>18</itemgap>
+                <visible>$EXP[Exp_HasStudioNetwork]</visible>
+                <include content="Object_MediaBrand">
+                    <param name="height" value="$PARAM[height]" />
+                    <param name="width" value="90" />
+                    <param name="image" value="$VAR[Image_MediaNetworkLogo]" />
+                    <param name="hasimage" value="$EXP[Exp_HasMediaNetworkLogo]" />
+                    <param name="haslabel" value="$EXP[Exp_HasMediaNetworkName]" />
+                    <param name="label" value="[COLOR=Highlight]$LOCALIZE[13279][/COLOR]  $VAR[Label_MediaNetwork]" />
+                    <param name="fallback" value="special://skin/extras/icons/tv.png" />
+                </include>
+                <include content="Object_MediaBrand">
+                    <param name="height" value="$PARAM[height]" />
+                    <param name="width" value="164" />
+                    <param name="image" value="$VAR[Image_MediaStudioLogo]" />
+                    <param name="hasimage" value="$EXP[Exp_HasMediaStudioLogo]" />
+                    <param name="haslabel" value="$EXP[Exp_HasMediaStudioName]" />
+                    <param name="label" value="[COLOR=Highlight]$LOCALIZE[572][/COLOR]  $VAR[Label_MediaStudio]" />
+                    <param name="fallback" value="special://skin/extras/icons/director.png" />
+                </include>
+            </control>
+        </definition>
+    </include>
+    <include name="Object_MediaBrand">
+        <definition>
+            <control type="group">
+                <width>$PARAM[width]</width>
+                <height>$PARAM[height]</height>
+                <visible>$PARAM[hasimage]</visible>
+                <control type="image">
+                    <width>100%</width>
+                    <height>100%</height>
+                    <texture colordiffuse="MediaLogoBackground">common/white.png</texture>
+                </control>
+                <control type="image">
+                    <left>6</left>
+                    <right>6</right>
+                    <top>2</top>
+                    <bottom>2</bottom>
+                    <aspectratio>keep</aspectratio>
+                    <texture background="true" fallback="$PARAM[fallback]">$PARAM[image]</texture>
+                </control>
+            </control>
+            <control type="label">
+                <width max="335">auto</width>
+                <height>$PARAM[height]</height>
+                <font>Font-ListInfo-Small-Bold</font>
+                <textcolor>Highlight2</textcolor>
+                <scroll>true</scroll>
+                <label>$PARAM[label]</label>
+                <visible>!$PARAM[hasimage] + $PARAM[haslabel]</visible>
+            </control>
+        </definition>
+    </include>
     <include name="Object_ExtraInfo_Textbox">
         <control type="group">
             <width>100%</width>
@@ -1086,7 +1134,7 @@
             <include>Object_Background</include>
             <control type="grouplist">
                 <usecontrolcoords>true</usecontrolcoords>
-                <itemgap>15</itemgap>
+                <itemgap>6</itemgap>
                 <orientation>vertical</orientation>
                 <left>pad</left>
                 <right>pad</right>
@@ -1160,35 +1208,22 @@
 
     <include name="Object_ExtraInfo_Content">
         <control type="label">
-            <top>pad</top>
             <left>pad</left>
             <right>pad</right>
             <height>36</height>
             <font>Font-InfoBox-Title</font>
             <label>$VAR[Label_Title]</label>
         </control>
-        <control type="group">
-            <height>58</height>
-            <width>100%</width>
-            <control type="image">
-                <left>pad</left><top>0</top><width>190</width><height>52</height>
-                <aspectratio>keep</aspectratio>
-                <texture>$VAR[Image_NetworkBadge]</texture>
-                <visible>!String.IsEmpty($VAR[Image_NetworkBadge])</visible>
-            </control>
-            <control type="label">
-                <left>pad</left><top>0</top><width>190</width><height>52</height>
-                <font>Font-ListInfo-Small-Bold</font><textcolor>Highlight2</textcolor>
-                <label>$INFO[ListItem.Property(Network)]$INFO[ListItem.Studio]</label>
-                <visible>String.IsEmpty($VAR[Image_NetworkBadge]) + [!String.IsEmpty(ListItem.Property(Network)) | !String.IsEmpty(ListItem.Studio)]</visible>
-            </control>
-            <control type="label">
-                <right>pad</right><top>0</top><width>180</width><height>52</height>
-                <align>right</align><aligny>center</aligny>
-                <font>Font-ListInfo-Small-Bold</font><textcolor>Highlight2</textcolor>
-                <label>[COLOR=Highlight]RATING[/COLOR]  $INFO[ListItem.MPAA]$INFO[ListItem.Property(Certification),,]</label>
-                <visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(Certification))</visible>
-            </control>
+        <include>Object_StudioNetwork</include>
+        <control type="label">
+            <left>pad</left>
+            <right>pad</right>
+            <height>28</height>
+            <font>Font-ListInfo-Small-Bold</font>
+            <textcolor>Highlight2</textcolor>
+            <scroll>true</scroll>
+            <label>[COLOR=Highlight]$LOCALIZE[563][/COLOR]  $VAR[Label_MediaRating]</label>
+            <visible>$EXP[Exp_HasCertification] | !String.IsEmpty(ListItem.Rating)</visible>
         </control>
         <control type="label">
             <left>pad</left><right>pad</right><height>24</height>
@@ -1199,7 +1234,7 @@
         <control type="textbox">
             <left>pad</left>
             <right>pad</right>
-            <height>158</height>
+            <height>128</height>
             <font>Font-ListInfo</font>
             <align>left</align>
             <label fallback="31092">$VAR[Label_Plot]</label>
@@ -1208,7 +1243,7 @@
         <control type="textbox">
             <left>pad</left>
             <right>pad</right>
-            <height>120</height>
+            <height>96</height>
             <font>Font-ListInfo</font>
             <align>left</align>
             <label fallback="31092">$VAR[Label_Plot]</label>

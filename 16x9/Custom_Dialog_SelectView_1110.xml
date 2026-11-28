@@ -82,7 +82,7 @@
                         </control>
                         <control type="image">
                             <visible>Control.HasFocus(9000)</visible>
-                            <texture border="8">extras/focus_terminal.png</texture>
+                            <texture colordiffuse="$VAR[HighlightColor]" border="8">extras/focus_terminal.png</texture>
                         </control>
 
                         <control type="image">
@@ -160,7 +160,7 @@
                         <onclick>Container.SetViewMode(50)</onclick>
                         <onclick>Container.SetViewMode(57)</onclick>
                         <visible>!Skin.HasSetting(SkinViewTypes.View.Disabled.57)</visible>
-                        <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+                        <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(videos) | Container.Content(musicvideos)</visible>
                     </item>
                     <!-- Media Info 3 -->
                     <item>
