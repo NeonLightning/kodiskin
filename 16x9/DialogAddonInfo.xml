@@ -30,7 +30,7 @@
                         <left>pad</left>
                         <right>pad</right>
                         <top>pad</top>
-                        <bottom>pad</bottom>
+                        <bottom>440</bottom>
                         <control type="label">
                             <top>pad</top>
                             <left>pad</left>
@@ -50,7 +50,7 @@
                             <top>pad</top>
                             <left>pad</left>
                             <right>pad</right>
-                            <height max="228">auto</height>
+                            <height max="150">auto</height>
                             <font>Font-ListInfo</font>
                             <align>left</align>
                             <label>$VAR[Label_Plot]</label>
@@ -182,6 +182,62 @@
                         </control>
 
                     </control>
+                    <!-- Screenshot gallery -->
+                    <control type="group">
+                        <bottom>210</bottom>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>220</height>
+                        <visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
+
+                        <control type="label">
+                            <height>32</height>
+                            <font>Font-ListInfo-Small-Bold</font>
+                            <textcolor>SubLabel</textcolor>
+                            <label>SCREENSHOTS</label>
+                        </control>
+
+                        <control type="panel" id="50">
+                            <top>38</top>
+                            <width>100%</width>
+                            <height>180</height>
+                            <orientation>horizontal</orientation>
+                            <onup>9000</onup>
+                            <ondown>9000</ondown>
+                            <onleft>50</onleft>
+                            <onright>50</onright>
+
+                            <itemlayout width="320" height="180">
+                                <control type="image">
+                                    <left>5</left>
+                                    <top>5</top>
+                                    <width>310</width>
+                                    <height>170</height>
+                                    <aspectratio>keep</aspectratio>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                </control>
+                            </itemlayout>
+
+                            <focusedlayout width="320" height="180">
+                                <control type="image">
+                                    <left>5</left>
+                                    <top>5</top>
+                                    <width>310</width>
+                                    <height>170</height>
+                                    <aspectratio>keep</aspectratio>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                </control>
+
+                                <control type="image">
+                                    <width>320</width>
+                                    <height>180</height>
+                                    <texture border="4" infill="false"
+                                             colordiffuse="$VAR[HighlightColor2]">white.png</texture>
+                                    <visible>Control.HasFocus(50)</visible>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
                     <!-- BUTTONS -->
                     <control type="grouplist" id="9000">
                         <left>bigpad</left>
@@ -191,7 +247,8 @@
                         <align>center</align>
                         <itemgap>pad</itemgap>
                         <orientation>horizontal</orientation>
-                        <onup>9601</onup>
+                        <onup condition="Integer.IsGreater(Container(50).NumItems,0)">50</onup>
+                        <onup condition="!Integer.IsGreater(Container(50).NumItems,0)">9000</onup>
                         <usecontrolcoords>true</usecontrolcoords>
 
                         <!-- Launch Addon Button -->
